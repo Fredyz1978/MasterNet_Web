@@ -1,0 +1,6 @@
+C:\Workspace\MasterNet Web\Common\bin\Debug\MasterNet.Core.Common.dll
+C:\Workspace\MasterNet Web\Common\bin\Debug\MasterNet.Core.Common.pdb
+C:\Workspace\MasterNet Web\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Workspace\MasterNet Web\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Workspace\MasterNet Web\Common\obj\Debug\MasterNet.Core.Common.dll
+C:\Workspace\MasterNet Web\Common\obj\Debug\MasterNet.Core.Common.pdb

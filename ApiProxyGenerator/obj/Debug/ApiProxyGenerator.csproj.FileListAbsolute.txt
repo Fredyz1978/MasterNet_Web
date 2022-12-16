@@ -1,0 +1,14 @@
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.exe.config
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.exe
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.pdb
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\obj\Debug\ApiProxyGenerator.csprojAssemblyReference.cache
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\obj\Debug\ApiProxyGenerator.csproj.CoreCompileInputs.cache
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\obj\Debug\SW.Core.ApiProxyGenerator.exe
+C:\WorkSpace Azure\SW_Core\1. DEV\Core\ApiProxyGenerator\obj\Debug\SW.Core.ApiProxyGenerator.pdb
+C:\Workspace\MasterNet Web\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.exe.config
+C:\Workspace\MasterNet Web\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.exe
+C:\Workspace\MasterNet Web\ApiProxyGenerator\bin\Debug\SW.Core.ApiProxyGenerator.pdb
+C:\Workspace\MasterNet Web\ApiProxyGenerator\obj\Debug\ApiProxyGenerator.csprojAssemblyReference.cache
+C:\Workspace\MasterNet Web\ApiProxyGenerator\obj\Debug\ApiProxyGenerator.csproj.CoreCompileInputs.cache
+C:\Workspace\MasterNet Web\ApiProxyGenerator\obj\Debug\SW.Core.ApiProxyGenerator.exe
+C:\Workspace\MasterNet Web\ApiProxyGenerator\obj\Debug\SW.Core.ApiProxyGenerator.pdb
