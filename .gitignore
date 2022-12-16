@@ -3,3 +3,8 @@
 ################################################################################
 
 /packages/EntityFramework.6.2.0/lib
+/packages/EntityFramework.6.2.0
+/DataAccess/obj/Debug/TempPE
+/DataAccess/bin/Debug
+/DataAccess/obj/Debug/MasterNet.Core.DataAccess.dll
+/DataAccess/obj/Debug

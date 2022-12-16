@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d0f3f9772c54d7fa656e4c9ca595a98" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_ALMACEN" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_ARTICULO" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_BODEGA" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DETALLE_DOCUMENTO_COMPRA" Width="2.25" PointX="13" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DETALLE_DOCUMENTO_VENTA" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DETALLE_GUIA_REMISION" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DETALLE_PROFORMA" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DETALLE_RETENCION" Width="1.5" PointX="14.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DOCUMENTO_COMPRA" Width="2.375" PointX="9.875" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_DOCUMENTO_VENTA" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_EGRESO" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_EGRESO_DETALLE" Width="1.875" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_EMPRESA" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_GRUPO" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_GUIA_REMISION" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_INGRESO" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_INGRESO_DETALLE" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_MENU" Width="1.5" PointX="7.625" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_ALMACEN_CO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_BODEGA_CO_ALMACEN" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_ARTICULO_CO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_EGRESO_DETALLE_CO_ARTICULO" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_INGRESO_DETALLE_CO_ARTICULO" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_EGRESO_DETALLE_CO_EGRESO" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_GRUPO_CO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_GUIA_REMISION_CO_EMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_INGRESO_DETALLE_CO_INGRESO" ManuallyRouted="false" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_MENU_CO_MENU" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_LISTA_PRECIO" Width="1.5" PointX="3" PointY="31.375" />
+        <EntityTypeShape EntityType="MasterNet_WebModel.CO_TABLA_PRECIO" Width="1.5" PointX="8.25" PointY="20.75" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_ARTICULO" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_LISTA_PRECIO_CO_EMPRESA" />
+        <AssociationConnector Association="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO" />
+        <AssociationConnector Association="MasterNet_WebModel.CO_UBICACIONARTICULO" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

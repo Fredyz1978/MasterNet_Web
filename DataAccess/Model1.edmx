@@ -1,0 +1,1900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MasterNet_WebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CO_ALMACEN">
+          <Key>
+            <PropertyRef Name="CO_ALM_COD" />
+          </Key>
+          <Property Name="CO_ALM_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_ALM_NOM" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CO_ARTICULO">
+          <Key>
+            <PropertyRef Name="CO_ART_COD" />
+          </Key>
+          <Property Name="CO_ART_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_CLA_FAM_ART_COD" Type="uniqueidentifier" />
+          <Property Name="CO_ART_NOM" Type="nvarchar" MaxLength="100" />
+          <Property Name="CO_ART_COD_FAB" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_CLA_ART_MAR" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_ART_COL" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_ART_EXI_MIN" Type="int" />
+          <Property Name="CO_ART_EXI_MAX" Type="int" />
+          <Property Name="CO_ART_UNI" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_ART_POR_IVA" Type="float" />
+          <Property Name="CO_CLA_ART_TIP" Type="nvarchar" MaxLength="15" />
+          <Property Name="CO_ART_USU_ALI" Type="varchar" MaxLength="15" />
+          <Property Name="CO_ICE_COD" Type="int" />
+          <Property Name="CO_ART_PRE_COS" Type="float" />
+          <Property Name="CO_ART_PES" Type="float" />
+          <Property Name="CO_ART_BAR" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_CLA_TIP_ART_COD" Type="nvarchar" MaxLength="10" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="UNIDAD_X_EMPAQUE" Type="int" />
+          <Property Name="PRESENTACION" Type="varchar" MaxLength="20" />
+          <Property Name="CODIGO_BARRAS" Type="varbinary(max)" />
+          <Property Name="CO_ART_EST" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_BODEGA">
+          <Key>
+            <PropertyRef Name="CO_BOD_COD" />
+          </Key>
+          <Property Name="CO_BOD_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ALM_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_BOD_NOM" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CO_ESTADO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_DOCUMENTO_COMPRA">
+          <Key>
+            <PropertyRef Name="CO_DET_DOC_COM_COD" />
+          </Key>
+          <Property Name="CO_DET_DOC_COM_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DOC_COM_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DET_DOC_COM_ART_COD" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CO_DET_DOC_COM_ART_NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_DOC_COM_CAN" Type="float" />
+          <Property Name="CO_DET_DOC_COM_PRE" Type="float" />
+          <Property Name="CO_DET_DOC_COM_DES" Type="float" />
+          <Property Name="CO_DET_DOC_COM_VAL_ICE" Type="float" />
+          <Property Name="CO_DET_DOC_COM_IVA" Type="float" />
+          <Property Name="CO_DET_DOC_COM_TOT" Type="float" />
+          <Property Name="CO_DET_DOC_COM_TIP_ART" Type="bit" />
+          <Property Name="CO_DET_DOC_COM_POR_ICE" Type="float" />
+          <Property Name="CO_DET_DOC_COM_POR_IVA" Type="float" />
+          <Property Name="CO_DET_DOC_COM_ART_BAR" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_CORRE_INV_DET_COM" Type="bit" />
+          <Property Name="CO_BOD_COD" Type="int" />
+          <Property Name="CO_BOD_NOM" Type="nvarchar" MaxLength="100" />
+          <Property Name="CO_CANTIDAD_EMPAQUE" Type="float" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_DOCUMENTO_VENTA">
+          <Key>
+            <PropertyRef Name="CO_DET_DOC_VEN_COD" />
+          </Key>
+          <Property Name="CO_DET_DOC_VEN_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DOC_VEN_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DET_DOC_VEN_ART_COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_DOC_VEN_ART_NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_DOC_VEN_CAN" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_PRE" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_DES" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_VAL_ICE" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_IVA" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_TOT" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_TIP_ART" Type="bit" />
+          <Property Name="CO_DET_DOC_VEN_POR_ICE" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_POR_IVA" Type="float" />
+          <Property Name="CO_DET_DOC_VEN_TIP_PRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_DOC_VEN_ART_BAR" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_DET_DOC_VEN_ART_PRE_COS" Type="float" />
+          <Property Name="CO_ART_EXI_ACT" Type="float" />
+          <Property Name="CO_BOD_COD" Type="int" />
+          <Property Name="CO_CANTIDAD_EMPAQUE" Type="float" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_GUIA_REMISION">
+          <Key>
+            <PropertyRef Name="CO_DET_GUI_REM_COD" />
+          </Key>
+          <Property Name="CO_DET_GUI_REM_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DET_GUI_REM_CAN" Type="int" />
+          <Property Name="CO_DET_GUI_REM_DES" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_PROFORMA">
+          <Key>
+            <PropertyRef Name="CO_DET_PRO_COD" />
+          </Key>
+          <Property Name="CO_DET_PRO_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_PRO_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_DET_PRO_ART_COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_PRO_ART_NOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_PRO_CAN" Type="int" />
+          <Property Name="CO_DET_PRO_PRE" Type="float" />
+          <Property Name="CO_DET_PRO_DES" Type="float" />
+          <Property Name="CO_DET_PRO_TOT" Type="float" />
+          <Property Name="CO_DET_PRO_TIP_ART" Type="bit" />
+          <Property Name="CO_DET_PRO_IVA" Type="float" />
+          <Property Name="CO_DET_PRO_CAN_EXI" Type="int" />
+          <Property Name="CO_DET_PRO_TIP_PRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DET_PRO_ART_BAR" Type="nvarchar" MaxLength="20" />
+          <Property Name="CANTIDAD_PROCESADA" Type="float" />
+          <Property Name="ESTADO" Type="nvarchar" MaxLength="20" />
+          <Property Name="CANTIDAD_FACTURAR" Type="float" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_RETENCION">
+          <Key>
+            <PropertyRef Name="CO_DET_RET_ID" />
+          </Key>
+          <Property Name="CO_DET_RET_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_RET_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_RET_BAS" Type="float" />
+          <Property Name="CO_RET_DET_COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_TIP_RET_NOM" Type="nvarchar" MaxLength="150" />
+          <Property Name="CO_TIP_RET_COD_SRI" Type="varchar" MaxLength="20" />
+          <Property Name="CO_RET_POR" Type="float" />
+          <Property Name="CO_RET_VAL" Type="float" />
+          <Property Name="CO_RET_DET_CUE" Type="nvarchar" MaxLength="40" />
+          <Property Name="CO_RET_DET_IMP" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_TIP_RET_COD" Type="int" />
+        </EntityType>
+        <EntityType Name="CO_DOCUMENTO_COMPRA">
+          <Key>
+            <PropertyRef Name="CO_DOC_COM_ID" />
+          </Key>
+          <Property Name="CO_DOC_COM_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="AlmacenID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_PRO_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_CLA_SUS_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_CLA_COM_COM_COD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CO_DOC_COM_NUM" Type="int" Nullable="false" />
+          <Property Name="CO_DOC_COM_FEC_CAD" Type="datetime" />
+          <Property Name="CO_DOC_COM_ETA" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_COM_PUN_EMI" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_COM_SEC" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_COM_DET" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_COM_NUM_AUT" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_COM_FEC_EMI" Type="datetime" />
+          <Property Name="CO_DOC_COM_FEC_REG" Type="datetime" />
+          <Property Name="CO_DOC_COM_EST" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_COM_TOT_NET" Type="float" />
+          <Property Name="CO_DOC_COM_POR_DES" Type="float" />
+          <Property Name="CO_DOC_COM_DES" Type="float" />
+          <Property Name="CO_DOC_COM_POR_IVA" Type="int" />
+          <Property Name="CO_DOC_COM_IVA" Type="float" />
+          <Property Name="CO_DOC_COM_TOT_PAG" Type="float" />
+          <Property Name="CO_DOC_COM_FOR_PAG" Type="nvarchar" MaxLength="15" />
+          <Property Name="CO_DOC_COM_EFE" Type="bit" />
+          <Property Name="CO_DOC_COM_EFE_VAL" Type="float" />
+          <Property Name="CO_DOC_COM_CHE" Type="bit" />
+          <Property Name="CO_DOC_COM_CHE_VAL" Type="float" />
+          <Property Name="CO_DOC_COM_CHE_NUM" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_COM_CHE_NUM_CUE" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_COM_NUM_PAG" Type="int" />
+          <Property Name="CO_DOC_COM_USU_ALI" Type="nvarchar" MaxLength="15" />
+          <Property Name="CO_DOC_COM_TOT_LET" Type="nvarchar" MaxLength="200" />
+          <Property Name="CO_DOC_COM_VAL_ICE" Type="float" />
+          <Property Name="CO_DOC_COM_VAL_IVA0" Type="float" />
+          <Property Name="CO_DOC_COM_CORRE_INV" Type="bit" />
+          <Property Name="CO_DOC_COM_FEC_PAGO" Type="datetime" />
+          <Property Name="CO_DOC_COM_DIAS_PLA" Type="int" />
+          <Property Name="CO_DOC_ESTADO_DE_PAGO" Type="bit" />
+          <Property Name="CO_DOC_COM_TAR" Type="bit" />
+          <Property Name="CO_DOC_COM_TAR_VAL" Type="float" />
+          <Property Name="CO_DOC_COM_TAR_NUM" Type="nvarchar" MaxLength="30" />
+          <Property Name="CO_DOC_COM_TAR_VAU" Type="nvarchar" MaxLength="40" />
+          <Property Name="CO_DOC_COM_CHE_FEC" Type="datetime" />
+          <Property Name="CO_DOC_COM_TRA" Type="bit" />
+          <Property Name="CO_DOC_COM_TRA_VAL" Type="float" />
+          <Property Name="CO_DOC_COM_TRA_DOC_NUM" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="CO_DOCUMENTO_VENTA">
+          <Key>
+            <PropertyRef Name="CO_DOC_VEN_ID" />
+          </Key>
+          <Property Name="CO_DOC_VEN_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_TIP_DOC_VEN_NUM" Type="int" Nullable="false" />
+          <Property Name="CO_CLI_COD" Type="uniqueidentifier" />
+          <Property Name="CO_VEN_ID" Type="uniqueidentifier" />
+          <Property Name="CO_DOC_VEN_NUM" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CO_DOC_VEN_FEC" Type="datetime" />
+          <Property Name="CO_DOC_VEN_EST" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_VEN_DET" Type="nvarchar" MaxLength="4000" />
+          <Property Name="CO_DOC_VEN_TOT_NET" Type="float" />
+          <Property Name="CO_DOC_VEN_POR_DES" Type="float" />
+          <Property Name="CO_DOC_VEN_DES" Type="float" />
+          <Property Name="CO_DOC_VEN_POR_IVA" Type="int" />
+          <Property Name="CO_DOC_VEN_IVA" Type="float" />
+          <Property Name="CO_DOC_VEN_TOT_PAG" Type="float" />
+          <Property Name="CO_DOC_VEN_FOR_PAG" Type="nvarchar" MaxLength="15" />
+          <Property Name="CO_DOC_VEN_EFE" Type="bit" />
+          <Property Name="CO_DOC_VEN_EFE_VAL" Type="float" />
+          <Property Name="CO_DOC_VEN_CHE" Type="bit" />
+          <Property Name="CO_DOC_VEN_CHE_VAL" Type="float" />
+          <Property Name="CO_DOC_VEN_CHE_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_DOC_VEN_CHE_BAN" Type="nvarchar" MaxLength="40" />
+          <Property Name="CO_DOC_VEN_TAR" Type="bit" />
+          <Property Name="CO_DOC_VEN_TAR_VAL" Type="float" />
+          <Property Name="CO_DOC_VEN_TAR_NUM" Type="nvarchar" MaxLength="30" />
+          <Property Name="CO_DOC_VEN_TAR_VAU" Type="nvarchar" MaxLength="40" />
+          <Property Name="CO_DOC_VEN_NUM_PAG" Type="int" />
+          <Property Name="CO_DOC_VEN_USU_ALI" Type="nvarchar" MaxLength="15" />
+          <Property Name="CO_DOC_VEN_TOT_LET" Type="nvarchar" MaxLength="200" />
+          <Property Name="CO_DOC_VEN_GUI_NUM" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_INI" Type="datetime" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_TER" Type="datetime" />
+          <Property Name="CO_DOC_VEN_GUI_TIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_VEN_GUI_NOM_TRA" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_VEN_GUI_IDE" Type="nvarchar" MaxLength="13" />
+          <Property Name="CO_DOC_VEN_VAL_ICE" Type="float" />
+          <Property Name="CO_DOC_VEN_VAL_IVA0" Type="float" />
+          <Property Name="CO_DOC_VEN_TIP_PRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_COM_NUM_RET" Type="int" />
+          <Property Name="CO_DOC_VEN_CHE_FEC" Type="datetime" />
+          <Property Name="CO_DOC_VEN_OTR" Type="nvarchar" MaxLength="100" />
+          <Property Name="CO_DOC_VEN_TAR_NOM" Type="int" />
+          <Property Name="AlmacenID" Type="int" Nullable="false" />
+          <Property Name="CO_DOC_VEN_DIAS_PLA" Type="int" />
+          <Property Name="CO_DOC_VEN_FEC_PAGO" Type="datetime" />
+          <Property Name="CO_DOC_VEN_TRA" Type="bit" />
+          <Property Name="CO_DOC_VEN_TRA_VAL" Type="float" />
+          <Property Name="CO_DOC_VEN_TRA_DOC_NUM" Type="varchar" MaxLength="20" />
+          <Property Name="CO_DOC_VEN_ORIGINAL_ID" Type="uniqueidentifier" />
+          <Property Name="CO_RESERVA_ID" Type="uniqueidentifier" />
+          <Property Name="CO_PROFORMA_ID" Type="int" />
+          <Property Name="FORMA_PAGO_ID" Type="uniqueidentifier" />
+          <Property Name="CO_DOC_VEN_CRE_FOR" Type="int" />
+        </EntityType>
+        <EntityType Name="CO_EGRESO">
+          <Key>
+            <PropertyRef Name="EgresoID" />
+          </Key>
+          <Property Name="EgresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BodegaOrigenID" Type="int" Nullable="false" />
+          <Property Name="BodegaDestinoID" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlmacenID" Type="int" />
+          <Property Name="Transferencia" Type="bit" />
+        </EntityType>
+        <EntityType Name="CO_EGRESO_DETALLE">
+          <Key>
+            <PropertyRef Name="DetalleEgresoID" />
+          </Key>
+          <Property Name="DetalleEgresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EgresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ART_NOM" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_EMPRESA">
+          <Key>
+            <PropertyRef Name="CO_EMP_RUC" />
+          </Key>
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_EMP_NOM" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CO_EMP_NOM_REP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CO_EMP_NOM_CON" Type="varchar" MaxLength="50" />
+          <Property Name="CO_EMP_REG_CON" Type="varchar" MaxLength="10" />
+          <Property Name="CO_EMP_DIR" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CO_CLA_CIU" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_TEL" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="CO_EMP_FAX" Type="varchar" MaxLength="11" />
+          <Property Name="CO_CLA_TIP_IDE" Type="nchar" MaxLength="1" />
+          <Property Name="CO_EMP_REP_IDE" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_EMP_RUC_CON" Type="nchar" MaxLength="13" />
+          <Property Name="CO_EMP_MAI" Type="nvarchar" MaxLength="100" />
+          <Property Name="CO_EMP_RAZ_SOC" Type="nvarchar" MaxLength="100" />
+          <Property Name="CO_CONTRIBUYENTE_ESPECIAL" Type="bit" />
+          <Property Name="CO_CONTRIBUYENTE_NUMERO" Type="nvarchar" MaxLength="10" />
+          <Property Name="CO_OBLIGADO_CONTABILIDAD" Type="bit" />
+          <Property Name="CO_EMPRESA_LOGO" Type="varbinary(max)" />
+          <Property Name="CO_EMPRESA_LOGO_FILE" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CO_GRUPO">
+          <Key>
+            <PropertyRef Name="CO_GRU_COD" />
+          </Key>
+          <Property Name="CO_GRU_COD" Type="int" Nullable="false" />
+          <Property Name="CO_GRU_NOM" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_EMP_ESCONTADOR" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_GUIA_REMISION">
+          <Key>
+            <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+          </Key>
+          <Property Name="CO_DOC_VEN_GUI_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="CO_DOC_VEN_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_NUM" Type="nvarchar" MaxLength="20" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_INI" Type="datetime" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_TER" Type="datetime" />
+          <Property Name="CO_DOC_VEN_GUI_DES" Type="varchar" MaxLength="300" />
+          <Property Name="CO_DOC_VEN_GUI_TIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_VEN_GUI_NOM_TRA" Type="nvarchar" MaxLength="50" />
+          <Property Name="CO_DOC_VEN_GUI_IDE" Type="nvarchar" MaxLength="13" />
+          <Property Name="CO_DOC_VEN_GUI_PLACA" Type="varchar" MaxLength="10" />
+          <Property Name="CO_ESTADO" Type="int" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_REG" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_INGRESO">
+          <Key>
+            <PropertyRef Name="IngresoID" />
+          </Key>
+          <Property Name="IngresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Numero" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BodegaOrigenID" Type="int" Nullable="false" />
+          <Property Name="BodegaDestinoID" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Transferencia" Type="bit" />
+          <Property Name="AlmacenID" Type="int" />
+        </EntityType>
+        <EntityType Name="CO_INGRESO_DETALLE">
+          <Key>
+            <PropertyRef Name="DetalleIngresoID" />
+          </Key>
+          <Property Name="DetalleIngresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IngresoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ART_NOM" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="Cantidad" Type="float" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CO_LISTA_PRECIO">
+          <Key>
+            <PropertyRef Name="ListaDePrecioID" />
+          </Key>
+          <Property Name="ListaDePrecioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Rentabilidad" Type="float" />
+        </EntityType>
+        <EntityType Name="CO_MENU">
+          <Key>
+            <PropertyRef Name="CO_MENU_ID" />
+          </Key>
+          <Property Name="CO_MENU_ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_MENU_PADRE_ID" Type="uniqueidentifier" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="DISPONIBLE" Type="bit" />
+        </EntityType>
+        <EntityType Name="CO_TABLA_PRECIO">
+          <Key>
+            <PropertyRef Name="ListaDePrecioID" />
+            <PropertyRef Name="CO_ART_COD" />
+          </Key>
+          <Property Name="ListaDePrecioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_TAB_PRE" Type="float" Nullable="false" />
+          <Property Name="CO_TAB_PRE_POR_ART" Type="float" Nullable="false" />
+          <Property Name="CO_TAB_PRE_MIN" Type="float" />
+        </EntityType>
+        <EntityType Name="CO_UBICACIONARTICULO">
+          <Key>
+            <PropertyRef Name="CO_ART_COD" />
+            <PropertyRef Name="CO_BOD_COD" />
+          </Key>
+          <Property Name="CO_ART_COD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CO_BOD_COD" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CO_ALMACEN_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_ALMACEN" Type="Self.CO_ALMACEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_ALMACEN">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_ARTICULO_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_ARTICULO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_BODEGA_CO_ALMACEN">
+          <End Role="CO_ALMACEN" Type="Self.CO_ALMACEN" Multiplicity="1" />
+          <End Role="CO_BODEGA" Type="Self.CO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ALMACEN">
+              <PropertyRef Name="CO_ALM_COD" />
+            </Principal>
+            <Dependent Role="CO_BODEGA">
+              <PropertyRef Name="CO_ALM_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA">
+          <End Role="CO_DOCUMENTO_COMPRA" Type="Self.CO_DOCUMENTO_COMPRA" Multiplicity="1" />
+          <End Role="CO_DETALLE_DOCUMENTO_COMPRA" Type="Self.CO_DETALLE_DOCUMENTO_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_COMPRA">
+              <PropertyRef Name="CO_DOC_COM_ID" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_DOCUMENTO_COMPRA">
+              <PropertyRef Name="CO_DOC_COM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1">
+          <End Role="CO_DOCUMENTO_VENTA" Type="Self.CO_DOCUMENTO_VENTA" Multiplicity="1" />
+          <End Role="CO_DETALLE_DOCUMENTO_VENTA" Type="Self.CO_DETALLE_DOCUMENTO_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION">
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="1" />
+          <End Role="CO_DETALLE_GUIA_REMISION" Type="Self.CO_DETALLE_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_EGRESO_DETALLE_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_EGRESO_DETALLE" Type="Self.CO_EGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_EGRESO_DETALLE">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_EGRESO_DETALLE_CO_EGRESO">
+          <End Role="CO_EGRESO" Type="Self.CO_EGRESO" Multiplicity="1" />
+          <End Role="CO_EGRESO_DETALLE" Type="Self.CO_EGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EGRESO">
+              <PropertyRef Name="EgresoID" />
+            </Principal>
+            <Dependent Role="CO_EGRESO_DETALLE">
+              <PropertyRef Name="EgresoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GRUPO_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CO_GRUPO" Type="Self.CO_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_GRUPO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA">
+          <End Role="CO_DOCUMENTO_VENTA" Type="Self.CO_DOCUMENTO_VENTA" Multiplicity="1" />
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Principal>
+            <Dependent Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GUIA_REMISION_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_INGRESO_DETALLE_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_INGRESO_DETALLE" Type="Self.CO_INGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_INGRESO_DETALLE">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_INGRESO_DETALLE_CO_INGRESO">
+          <End Role="CO_INGRESO" Type="Self.CO_INGRESO" Multiplicity="1" />
+          <End Role="CO_INGRESO_DETALLE" Type="Self.CO_INGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_INGRESO">
+              <PropertyRef Name="IngresoID" />
+            </Principal>
+            <Dependent Role="CO_INGRESO_DETALLE">
+              <PropertyRef Name="IngresoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_LISTA_PRECIO_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_LISTA_PRECIO" Type="Self.CO_LISTA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_LISTA_PRECIO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_MENU_CO_MENU">
+          <End Role="CO_MENU" Type="Self.CO_MENU" Multiplicity="0..1" />
+          <End Role="CO_MENU1" Type="Self.CO_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_MENU">
+              <PropertyRef Name="CO_MENU_ID" />
+            </Principal>
+            <Dependent Role="CO_MENU1">
+              <PropertyRef Name="CO_MENU_PADRE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_TABLA_PRECIO_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_TABLA_PRECIO" Type="Self.CO_TABLA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_TABLA_PRECIO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO">
+          <End Role="CO_LISTA_PRECIO" Type="Self.CO_LISTA_PRECIO" Multiplicity="1" />
+          <End Role="CO_TABLA_PRECIO" Type="Self.CO_TABLA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_LISTA_PRECIO">
+              <PropertyRef Name="ListaDePrecioID" />
+            </Principal>
+            <Dependent Role="CO_TABLA_PRECIO">
+              <PropertyRef Name="ListaDePrecioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_UBICACIONARTICULO_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_UBICACIONARTICULO" Type="Self.CO_UBICACIONARTICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_UBICACIONARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_UBICACIONARTICULO_CO_BODEGA">
+          <End Role="CO_BODEGA" Type="Self.CO_BODEGA" Multiplicity="1" />
+          <End Role="CO_UBICACIONARTICULO" Type="Self.CO_UBICACIONARTICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_BODEGA">
+              <PropertyRef Name="CO_BOD_COD" />
+            </Principal>
+            <Dependent Role="CO_UBICACIONARTICULO">
+              <PropertyRef Name="CO_BOD_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterNet_WebModelStoreContainer">
+          <EntitySet Name="CO_ALMACEN" EntityType="Self.CO_ALMACEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_ARTICULO" EntityType="Self.CO_ARTICULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_BODEGA" EntityType="Self.CO_BODEGA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DETALLE_DOCUMENTO_COMPRA" EntityType="Self.CO_DETALLE_DOCUMENTO_COMPRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DETALLE_DOCUMENTO_VENTA" EntityType="Self.CO_DETALLE_DOCUMENTO_VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DETALLE_GUIA_REMISION" EntityType="Self.CO_DETALLE_GUIA_REMISION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DETALLE_PROFORMA" EntityType="Self.CO_DETALLE_PROFORMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DETALLE_RETENCION" EntityType="Self.CO_DETALLE_RETENCION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DOCUMENTO_COMPRA" EntityType="Self.CO_DOCUMENTO_COMPRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_DOCUMENTO_VENTA" EntityType="Self.CO_DOCUMENTO_VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_EGRESO" EntityType="Self.CO_EGRESO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_EGRESO_DETALLE" EntityType="Self.CO_EGRESO_DETALLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_EMPRESA" EntityType="Self.CO_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_GRUPO" EntityType="Self.CO_GRUPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_GUIA_REMISION" EntityType="Self.CO_GUIA_REMISION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_INGRESO" EntityType="Self.CO_INGRESO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_INGRESO_DETALLE" EntityType="Self.CO_INGRESO_DETALLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_LISTA_PRECIO" EntityType="Self.CO_LISTA_PRECIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_MENU" EntityType="Self.CO_MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_TABLA_PRECIO" EntityType="Self.CO_TABLA_PRECIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CO_UBICACIONARTICULO" EntityType="Self.CO_UBICACIONARTICULO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CO_ALMACEN_CO_EMPRESA" Association="Self.FK_CO_ALMACEN_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_ALMACEN" EntitySet="CO_ALMACEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_ARTICULO_CO_EMPRESA" Association="Self.FK_CO_ARTICULO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_BODEGA_CO_ALMACEN" Association="Self.FK_CO_BODEGA_CO_ALMACEN">
+            <End Role="CO_ALMACEN" EntitySet="CO_ALMACEN" />
+            <End Role="CO_BODEGA" EntitySet="CO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA" Association="Self.FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA">
+            <End Role="CO_DOCUMENTO_COMPRA" EntitySet="CO_DOCUMENTO_COMPRA" />
+            <End Role="CO_DETALLE_DOCUMENTO_COMPRA" EntitySet="CO_DETALLE_DOCUMENTO_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1" Association="Self.FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1">
+            <End Role="CO_DOCUMENTO_VENTA" EntitySet="CO_DOCUMENTO_VENTA" />
+            <End Role="CO_DETALLE_DOCUMENTO_VENTA" EntitySet="CO_DETALLE_DOCUMENTO_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION" Association="Self.FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION">
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+            <End Role="CO_DETALLE_GUIA_REMISION" EntitySet="CO_DETALLE_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_EGRESO_DETALLE_CO_ARTICULO" Association="Self.FK_CO_EGRESO_DETALLE_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_EGRESO_DETALLE" EntitySet="CO_EGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_EGRESO_DETALLE_CO_EGRESO" Association="Self.FK_CO_EGRESO_DETALLE_CO_EGRESO">
+            <End Role="CO_EGRESO" EntitySet="CO_EGRESO" />
+            <End Role="CO_EGRESO_DETALLE" EntitySet="CO_EGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GRUPO_CO_EMPRESA" Association="Self.FK_CO_GRUPO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_GRUPO" EntitySet="CO_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA" Association="Self.FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA">
+            <End Role="CO_DOCUMENTO_VENTA" EntitySet="CO_DOCUMENTO_VENTA" />
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GUIA_REMISION_CO_EMPRESA" Association="Self.FK_CO_GUIA_REMISION_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_INGRESO_DETALLE_CO_ARTICULO" Association="Self.FK_CO_INGRESO_DETALLE_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_INGRESO_DETALLE" EntitySet="CO_INGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_INGRESO_DETALLE_CO_INGRESO" Association="Self.FK_CO_INGRESO_DETALLE_CO_INGRESO">
+            <End Role="CO_INGRESO" EntitySet="CO_INGRESO" />
+            <End Role="CO_INGRESO_DETALLE" EntitySet="CO_INGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_LISTA_PRECIO_CO_EMPRESA" Association="Self.FK_CO_LISTA_PRECIO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_LISTA_PRECIO" EntitySet="CO_LISTA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_MENU_CO_MENU" Association="Self.FK_CO_MENU_CO_MENU">
+            <End Role="CO_MENU" EntitySet="CO_MENU" />
+            <End Role="CO_MENU1" EntitySet="CO_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_TABLA_PRECIO_CO_ARTICULO" Association="Self.FK_CO_TABLA_PRECIO_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_TABLA_PRECIO" EntitySet="CO_TABLA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO" Association="Self.FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO">
+            <End Role="CO_LISTA_PRECIO" EntitySet="CO_LISTA_PRECIO" />
+            <End Role="CO_TABLA_PRECIO" EntitySet="CO_TABLA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_UBICACIONARTICULO_CO_ARTICULO" Association="Self.FK_CO_UBICACIONARTICULO_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_UBICACIONARTICULO" EntitySet="CO_UBICACIONARTICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_UBICACIONARTICULO_CO_BODEGA" Association="Self.FK_CO_UBICACIONARTICULO_CO_BODEGA">
+            <End Role="CO_BODEGA" EntitySet="CO_BODEGA" />
+            <End Role="CO_UBICACIONARTICULO" EntitySet="CO_UBICACIONARTICULO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterNet_WebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CO_ALMACEN">
+          <Key>
+            <PropertyRef Name="CO_ALM_COD" />
+          </Key>
+          <Property Name="CO_ALM_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_ALM_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CO_EMPRESA" Relationship="Self.FK_CO_ALMACEN_CO_EMPRESA" FromRole="CO_ALMACEN" ToRole="CO_EMPRESA" />
+          <NavigationProperty Name="CO_BODEGA" Relationship="Self.FK_CO_BODEGA_CO_ALMACEN" FromRole="CO_ALMACEN" ToRole="CO_BODEGA" />
+        </EntityType>
+        <EntityType Name="CO_ARTICULO">
+          <Key>
+            <PropertyRef Name="CO_ART_COD" />
+          </Key>
+          <Property Name="CO_ART_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_CLA_FAM_ART_COD" Type="Guid" />
+          <Property Name="CO_ART_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CO_ART_COD_FAB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_CLA_ART_MAR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_ART_COL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_ART_EXI_MIN" Type="Int32" />
+          <Property Name="CO_ART_EXI_MAX" Type="Int32" />
+          <Property Name="CO_ART_UNI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_ART_POR_IVA" Type="Double" />
+          <Property Name="CO_CLA_ART_TIP" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CO_ART_USU_ALI" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CO_ICE_COD" Type="Int32" />
+          <Property Name="CO_ART_PRE_COS" Type="Double" />
+          <Property Name="CO_ART_PES" Type="Double" />
+          <Property Name="CO_ART_BAR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_CLA_TIP_ART_COD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UNIDAD_X_EMPAQUE" Type="Int32" />
+          <Property Name="PRESENTACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_BARRAS" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CO_ART_EST" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CO_EMPRESA" Relationship="Self.FK_CO_ARTICULO_CO_EMPRESA" FromRole="CO_ARTICULO" ToRole="CO_EMPRESA" />
+          <NavigationProperty Name="CO_EGRESO_DETALLE" Relationship="Self.FK_CO_EGRESO_DETALLE_CO_ARTICULO" FromRole="CO_ARTICULO" ToRole="CO_EGRESO_DETALLE" />
+          <NavigationProperty Name="CO_INGRESO_DETALLE" Relationship="Self.FK_CO_INGRESO_DETALLE_CO_ARTICULO" FromRole="CO_ARTICULO" ToRole="CO_INGRESO_DETALLE" />
+          <NavigationProperty Name="CO_TABLA_PRECIO" Relationship="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_ARTICULO" FromRole="CO_ARTICULO" ToRole="CO_TABLA_PRECIO" />
+          <NavigationProperty Name="CO_BODEGA" Relationship="MasterNet_WebModel.CO_UBICACIONARTICULO" FromRole="CO_ARTICULO" ToRole="CO_BODEGA" />
+        </EntityType>
+        <EntityType Name="CO_BODEGA">
+          <Key>
+            <PropertyRef Name="CO_BOD_COD" />
+          </Key>
+          <Property Name="CO_BOD_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_ALM_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_BOD_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CO_ESTADO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CO_ALMACEN" Relationship="Self.FK_CO_BODEGA_CO_ALMACEN" FromRole="CO_BODEGA" ToRole="CO_ALMACEN" />
+          <NavigationProperty Name="CO_ARTICULO" Relationship="MasterNet_WebModel.CO_UBICACIONARTICULO" FromRole="CO_BODEGA" ToRole="CO_ARTICULO" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_DOCUMENTO_COMPRA">
+          <Key>
+            <PropertyRef Name="CO_DET_DOC_COM_COD" />
+          </Key>
+          <Property Name="CO_DET_DOC_COM_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_DOC_COM_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_DET_DOC_COM_ART_COD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CO_DET_DOC_COM_ART_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_DOC_COM_CAN" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_PRE" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_DES" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_VAL_ICE" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_IVA" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_TOT" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_TIP_ART" Type="Boolean" />
+          <Property Name="CO_DET_DOC_COM_POR_ICE" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_POR_IVA" Type="Double" />
+          <Property Name="CO_DET_DOC_COM_ART_BAR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_CORRE_INV_DET_COM" Type="Boolean" />
+          <Property Name="CO_BOD_COD" Type="Int32" />
+          <Property Name="CO_BOD_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CO_CANTIDAD_EMPAQUE" Type="Double" />
+          <NavigationProperty Name="CO_DOCUMENTO_COMPRA" Relationship="Self.FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA" FromRole="CO_DETALLE_DOCUMENTO_COMPRA" ToRole="CO_DOCUMENTO_COMPRA" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_DOCUMENTO_VENTA">
+          <Key>
+            <PropertyRef Name="CO_DET_DOC_VEN_COD" />
+          </Key>
+          <Property Name="CO_DET_DOC_VEN_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_DOC_VEN_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_DET_DOC_VEN_ART_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_DOC_VEN_ART_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_DOC_VEN_CAN" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_PRE" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_DES" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_VAL_ICE" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_IVA" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_TOT" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_TIP_ART" Type="Boolean" />
+          <Property Name="CO_DET_DOC_VEN_POR_ICE" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_POR_IVA" Type="Double" />
+          <Property Name="CO_DET_DOC_VEN_TIP_PRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_DOC_VEN_ART_BAR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_DOC_VEN_ART_PRE_COS" Type="Double" />
+          <Property Name="CO_ART_EXI_ACT" Type="Double" />
+          <Property Name="CO_BOD_COD" Type="Int32" />
+          <Property Name="CO_CANTIDAD_EMPAQUE" Type="Double" />
+          <NavigationProperty Name="CO_DOCUMENTO_VENTA" Relationship="Self.FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1" FromRole="CO_DETALLE_DOCUMENTO_VENTA" ToRole="CO_DOCUMENTO_VENTA" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_GUIA_REMISION">
+          <Key>
+            <PropertyRef Name="CO_DET_GUI_REM_COD" />
+          </Key>
+          <Property Name="CO_DET_GUI_REM_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_DET_GUI_REM_CAN" Type="Int32" />
+          <Property Name="CO_DET_GUI_REM_DES" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CO_GUIA_REMISION" Relationship="Self.FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION" FromRole="CO_DETALLE_GUIA_REMISION" ToRole="CO_GUIA_REMISION" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_PROFORMA">
+          <Key>
+            <PropertyRef Name="CO_DET_PRO_COD" />
+          </Key>
+          <Property Name="CO_DET_PRO_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_PRO_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_DET_PRO_ART_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_PRO_ART_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_PRO_CAN" Type="Int32" />
+          <Property Name="CO_DET_PRO_PRE" Type="Double" />
+          <Property Name="CO_DET_PRO_DES" Type="Double" />
+          <Property Name="CO_DET_PRO_TOT" Type="Double" />
+          <Property Name="CO_DET_PRO_TIP_ART" Type="Boolean" />
+          <Property Name="CO_DET_PRO_IVA" Type="Double" />
+          <Property Name="CO_DET_PRO_CAN_EXI" Type="Int32" />
+          <Property Name="CO_DET_PRO_TIP_PRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DET_PRO_ART_BAR" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CANTIDAD_PROCESADA" Type="Double" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CANTIDAD_FACTURAR" Type="Double" />
+        </EntityType>
+        <EntityType Name="CO_DETALLE_RETENCION">
+          <Key>
+            <PropertyRef Name="CO_DET_RET_ID" />
+          </Key>
+          <Property Name="CO_DET_RET_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_RET_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_RET_BAS" Type="Double" />
+          <Property Name="CO_RET_DET_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_TIP_RET_NOM" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CO_TIP_RET_COD_SRI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CO_RET_POR" Type="Double" />
+          <Property Name="CO_RET_VAL" Type="Double" />
+          <Property Name="CO_RET_DET_CUE" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CO_RET_DET_IMP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_TIP_RET_COD" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CO_DOCUMENTO_COMPRA">
+          <Key>
+            <PropertyRef Name="CO_DOC_COM_ID" />
+          </Key>
+          <Property Name="CO_DOC_COM_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AlmacenID" Type="Guid" Nullable="false" />
+          <Property Name="CO_PRO_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_CLA_SUS_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_CLA_COM_COM_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_DOC_COM_NUM" Type="Int32" Nullable="false" />
+          <Property Name="CO_DOC_COM_FEC_CAD" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_COM_ETA" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_PUN_EMI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_SEC" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_DET" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_NUM_AUT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_FEC_EMI" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_COM_FEC_REG" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_COM_EST" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_TOT_NET" Type="Double" />
+          <Property Name="CO_DOC_COM_POR_DES" Type="Double" />
+          <Property Name="CO_DOC_COM_DES" Type="Double" />
+          <Property Name="CO_DOC_COM_POR_IVA" Type="Int32" />
+          <Property Name="CO_DOC_COM_IVA" Type="Double" />
+          <Property Name="CO_DOC_COM_TOT_PAG" Type="Double" />
+          <Property Name="CO_DOC_COM_FOR_PAG" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_EFE" Type="Boolean" />
+          <Property Name="CO_DOC_COM_EFE_VAL" Type="Double" />
+          <Property Name="CO_DOC_COM_CHE" Type="Boolean" />
+          <Property Name="CO_DOC_COM_CHE_VAL" Type="Double" />
+          <Property Name="CO_DOC_COM_CHE_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_CHE_NUM_CUE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_NUM_PAG" Type="Int32" />
+          <Property Name="CO_DOC_COM_USU_ALI" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_TOT_LET" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_VAL_ICE" Type="Double" />
+          <Property Name="CO_DOC_COM_VAL_IVA0" Type="Double" />
+          <Property Name="CO_DOC_COM_CORRE_INV" Type="Boolean" />
+          <Property Name="CO_DOC_COM_FEC_PAGO" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_COM_DIAS_PLA" Type="Int32" />
+          <Property Name="CO_DOC_ESTADO_DE_PAGO" Type="Boolean" />
+          <Property Name="CO_DOC_COM_TAR" Type="Boolean" />
+          <Property Name="CO_DOC_COM_TAR_VAL" Type="Double" />
+          <Property Name="CO_DOC_COM_TAR_NUM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_TAR_VAU" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_COM_CHE_FEC" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_COM_TRA" Type="Boolean" />
+          <Property Name="CO_DOC_COM_TRA_VAL" Type="Double" />
+          <Property Name="CO_DOC_COM_TRA_DOC_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CO_DETALLE_DOCUMENTO_COMPRA" Relationship="Self.FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA" FromRole="CO_DOCUMENTO_COMPRA" ToRole="CO_DETALLE_DOCUMENTO_COMPRA" />
+        </EntityType>
+        <EntityType Name="CO_DOCUMENTO_VENTA">
+          <Key>
+            <PropertyRef Name="CO_DOC_VEN_ID" />
+          </Key>
+          <Property Name="CO_DOC_VEN_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_TIP_DOC_VEN_NUM" Type="Int32" Nullable="false" />
+          <Property Name="CO_CLI_COD" Type="Guid" />
+          <Property Name="CO_VEN_ID" Type="Guid" />
+          <Property Name="CO_DOC_VEN_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CO_DOC_VEN_FEC" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_EST" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_DET" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_TOT_NET" Type="Double" />
+          <Property Name="CO_DOC_VEN_POR_DES" Type="Double" />
+          <Property Name="CO_DOC_VEN_DES" Type="Double" />
+          <Property Name="CO_DOC_VEN_POR_IVA" Type="Int32" />
+          <Property Name="CO_DOC_VEN_IVA" Type="Double" />
+          <Property Name="CO_DOC_VEN_TOT_PAG" Type="Double" />
+          <Property Name="CO_DOC_VEN_FOR_PAG" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_EFE" Type="Boolean" />
+          <Property Name="CO_DOC_VEN_EFE_VAL" Type="Double" />
+          <Property Name="CO_DOC_VEN_CHE" Type="Boolean" />
+          <Property Name="CO_DOC_VEN_CHE_VAL" Type="Double" />
+          <Property Name="CO_DOC_VEN_CHE_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_CHE_BAN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_TAR" Type="Boolean" />
+          <Property Name="CO_DOC_VEN_TAR_VAL" Type="Double" />
+          <Property Name="CO_DOC_VEN_TAR_NUM" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_TAR_VAU" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_NUM_PAG" Type="Int32" />
+          <Property Name="CO_DOC_VEN_USU_ALI" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_TOT_LET" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_NUM" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_INI" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_TER" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_GUI_TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_NOM_TRA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_IDE" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_VAL_ICE" Type="Double" />
+          <Property Name="CO_DOC_VEN_VAL_IVA0" Type="Double" />
+          <Property Name="CO_DOC_VEN_TIP_PRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_COM_NUM_RET" Type="Int32" />
+          <Property Name="CO_DOC_VEN_CHE_FEC" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_OTR" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_TAR_NOM" Type="Int32" />
+          <Property Name="AlmacenID" Type="Int32" Nullable="false" />
+          <Property Name="CO_DOC_VEN_DIAS_PLA" Type="Int32" />
+          <Property Name="CO_DOC_VEN_FEC_PAGO" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_TRA" Type="Boolean" />
+          <Property Name="CO_DOC_VEN_TRA_VAL" Type="Double" />
+          <Property Name="CO_DOC_VEN_TRA_DOC_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CO_DOC_VEN_ORIGINAL_ID" Type="Guid" />
+          <Property Name="CO_RESERVA_ID" Type="Guid" />
+          <Property Name="CO_PROFORMA_ID" Type="Int32" />
+          <Property Name="FORMA_PAGO_ID" Type="Guid" />
+          <Property Name="CO_DOC_VEN_CRE_FOR" Type="Int32" />
+          <NavigationProperty Name="CO_DETALLE_DOCUMENTO_VENTA" Relationship="Self.FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1" FromRole="CO_DOCUMENTO_VENTA" ToRole="CO_DETALLE_DOCUMENTO_VENTA" />
+          <NavigationProperty Name="CO_GUIA_REMISION" Relationship="Self.FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA" FromRole="CO_DOCUMENTO_VENTA" ToRole="CO_GUIA_REMISION" />
+        </EntityType>
+        <EntityType Name="CO_EGRESO">
+          <Key>
+            <PropertyRef Name="EgresoID" />
+          </Key>
+          <Property Name="EgresoID" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BodegaOrigenID" Type="Int32" Nullable="false" />
+          <Property Name="BodegaDestinoID" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlmacenID" Type="Int32" />
+          <Property Name="Transferencia" Type="Boolean" />
+          <NavigationProperty Name="CO_EGRESO_DETALLE" Relationship="Self.FK_CO_EGRESO_DETALLE_CO_EGRESO" FromRole="CO_EGRESO" ToRole="CO_EGRESO_DETALLE" />
+        </EntityType>
+        <EntityType Name="CO_EGRESO_DETALLE">
+          <Key>
+            <PropertyRef Name="DetalleEgresoID" />
+          </Key>
+          <Property Name="DetalleEgresoID" Type="Guid" Nullable="false" />
+          <Property Name="EgresoID" Type="Guid" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_ART_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Costo" Type="Double" Nullable="false" />
+          <Property Name="Cantidad" Type="Double" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="CO_ARTICULO" Relationship="Self.FK_CO_EGRESO_DETALLE_CO_ARTICULO" FromRole="CO_EGRESO_DETALLE" ToRole="CO_ARTICULO" />
+          <NavigationProperty Name="CO_EGRESO" Relationship="Self.FK_CO_EGRESO_DETALLE_CO_EGRESO" FromRole="CO_EGRESO_DETALLE" ToRole="CO_EGRESO" />
+        </EntityType>
+        <EntityType Name="CO_EMPRESA">
+          <Key>
+            <PropertyRef Name="CO_EMP_RUC" />
+          </Key>
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_NOM_REP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_NOM_CON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CO_EMP_REG_CON" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CO_EMP_DIR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_CLA_CIU" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_TEL" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_FAX" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CO_CLA_TIP_IDE" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="CO_EMP_REP_IDE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_EMP_RUC_CON" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+          <Property Name="CO_EMP_MAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CO_EMP_RAZ_SOC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CO_CONTRIBUYENTE_ESPECIAL" Type="Boolean" />
+          <Property Name="CO_CONTRIBUYENTE_NUMERO" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CO_OBLIGADO_CONTABILIDAD" Type="Boolean" />
+          <Property Name="CO_EMPRESA_LOGO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CO_EMPRESA_LOGO_FILE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CO_ALMACEN" Relationship="Self.FK_CO_ALMACEN_CO_EMPRESA" FromRole="CO_EMPRESA" ToRole="CO_ALMACEN" />
+          <NavigationProperty Name="CO_ARTICULO" Relationship="Self.FK_CO_ARTICULO_CO_EMPRESA" FromRole="CO_EMPRESA" ToRole="CO_ARTICULO" />
+          <NavigationProperty Name="CO_GRUPO" Relationship="Self.FK_CO_GRUPO_CO_EMPRESA" FromRole="CO_EMPRESA" ToRole="CO_GRUPO" />
+          <NavigationProperty Name="CO_GUIA_REMISION" Relationship="Self.FK_CO_GUIA_REMISION_CO_EMPRESA" FromRole="CO_EMPRESA" ToRole="CO_GUIA_REMISION" />
+          <NavigationProperty Name="CO_LISTA_PRECIO" Relationship="MasterNet_WebModel.FK_CO_LISTA_PRECIO_CO_EMPRESA" FromRole="CO_EMPRESA" ToRole="CO_LISTA_PRECIO" />
+        </EntityType>
+        <EntityType Name="CO_GRUPO">
+          <Key>
+            <PropertyRef Name="CO_GRU_COD" />
+          </Key>
+          <Property Name="CO_GRU_COD" Type="Int32" Nullable="false" />
+          <Property Name="CO_GRU_NOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_EMP_ESCONTADOR" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CO_EMPRESA" Relationship="Self.FK_CO_GRUPO_CO_EMPRESA" FromRole="CO_GRUPO" ToRole="CO_EMPRESA" />
+        </EntityType>
+        <EntityType Name="CO_GUIA_REMISION">
+          <Key>
+            <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+          </Key>
+          <Property Name="CO_DOC_VEN_GUI_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CO_DOC_VEN_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_NUM" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_INI" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_TER" Type="DateTime" Precision="3" />
+          <Property Name="CO_DOC_VEN_GUI_DES" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CO_DOC_VEN_GUI_TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_NOM_TRA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_IDE" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="CO_DOC_VEN_GUI_PLACA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CO_ESTADO" Type="Int32" Nullable="false" />
+          <Property Name="CO_DOC_VEN_GUI_FEC_REG" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CO_DETALLE_GUIA_REMISION" Relationship="Self.FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION" FromRole="CO_GUIA_REMISION" ToRole="CO_DETALLE_GUIA_REMISION" />
+          <NavigationProperty Name="CO_DOCUMENTO_VENTA" Relationship="Self.FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA" FromRole="CO_GUIA_REMISION" ToRole="CO_DOCUMENTO_VENTA" />
+          <NavigationProperty Name="CO_EMPRESA" Relationship="Self.FK_CO_GUIA_REMISION_CO_EMPRESA" FromRole="CO_GUIA_REMISION" ToRole="CO_EMPRESA" />
+        </EntityType>
+        <EntityType Name="CO_INGRESO">
+          <Key>
+            <PropertyRef Name="IngresoID" />
+          </Key>
+          <Property Name="IngresoID" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Numero" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BodegaOrigenID" Type="Int32" Nullable="false" />
+          <Property Name="BodegaDestinoID" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Transferencia" Type="Boolean" />
+          <Property Name="AlmacenID" Type="Int32" />
+          <NavigationProperty Name="CO_INGRESO_DETALLE" Relationship="Self.FK_CO_INGRESO_DETALLE_CO_INGRESO" FromRole="CO_INGRESO" ToRole="CO_INGRESO_DETALLE" />
+        </EntityType>
+        <EntityType Name="CO_INGRESO_DETALLE">
+          <Key>
+            <PropertyRef Name="DetalleIngresoID" />
+          </Key>
+          <Property Name="DetalleIngresoID" Type="Guid" Nullable="false" />
+          <Property Name="IngresoID" Type="Guid" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_ART_NOM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Costo" Type="Double" Nullable="false" />
+          <Property Name="Cantidad" Type="Double" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="CO_ARTICULO" Relationship="Self.FK_CO_INGRESO_DETALLE_CO_ARTICULO" FromRole="CO_INGRESO_DETALLE" ToRole="CO_ARTICULO" />
+          <NavigationProperty Name="CO_INGRESO" Relationship="Self.FK_CO_INGRESO_DETALLE_CO_INGRESO" FromRole="CO_INGRESO_DETALLE" ToRole="CO_INGRESO" />
+        </EntityType>
+        <EntityType Name="CO_MENU">
+          <Key>
+            <PropertyRef Name="CO_MENU_ID" />
+          </Key>
+          <Property Name="CO_MENU_ID" Type="Guid" Nullable="false" />
+          <Property Name="CO_MENU_PADRE_ID" Type="Guid" />
+          <Property Name="NOMBRE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DISPONIBLE" Type="Boolean" />
+          <NavigationProperty Name="CO_MENU1" Relationship="Self.FK_CO_MENU_CO_MENU" FromRole="CO_MENU" ToRole="CO_MENU1" />
+          <NavigationProperty Name="CO_MENU2" Relationship="Self.FK_CO_MENU_CO_MENU" FromRole="CO_MENU1" ToRole="CO_MENU" />
+        </EntityType>
+        <Association Name="FK_CO_ALMACEN_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_ALMACEN" Type="Self.CO_ALMACEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_ALMACEN">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_BODEGA_CO_ALMACEN">
+          <End Role="CO_ALMACEN" Type="Self.CO_ALMACEN" Multiplicity="1" />
+          <End Role="CO_BODEGA" Type="Self.CO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ALMACEN">
+              <PropertyRef Name="CO_ALM_COD" />
+            </Principal>
+            <Dependent Role="CO_BODEGA">
+              <PropertyRef Name="CO_ALM_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_ARTICULO_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_ARTICULO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_EGRESO_DETALLE_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_EGRESO_DETALLE" Type="Self.CO_EGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_EGRESO_DETALLE">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_INGRESO_DETALLE_CO_ARTICULO">
+          <End Role="CO_ARTICULO" Type="Self.CO_ARTICULO" Multiplicity="1" />
+          <End Role="CO_INGRESO_DETALLE" Type="Self.CO_INGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_INGRESO_DETALLE">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA">
+          <End Role="CO_DOCUMENTO_COMPRA" Type="Self.CO_DOCUMENTO_COMPRA" Multiplicity="1" />
+          <End Role="CO_DETALLE_DOCUMENTO_COMPRA" Type="Self.CO_DETALLE_DOCUMENTO_COMPRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_COMPRA">
+              <PropertyRef Name="CO_DOC_COM_ID" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_DOCUMENTO_COMPRA">
+              <PropertyRef Name="CO_DOC_COM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1">
+          <End Role="CO_DOCUMENTO_VENTA" Type="Self.CO_DOCUMENTO_VENTA" Multiplicity="1" />
+          <End Role="CO_DETALLE_DOCUMENTO_VENTA" Type="Self.CO_DETALLE_DOCUMENTO_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION">
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="1" />
+          <End Role="CO_DETALLE_GUIA_REMISION" Type="Self.CO_DETALLE_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+            </Principal>
+            <Dependent Role="CO_DETALLE_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_GUI_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA">
+          <End Role="CO_DOCUMENTO_VENTA" Type="Self.CO_DOCUMENTO_VENTA" Multiplicity="1" />
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_DOCUMENTO_VENTA">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Principal>
+            <Dependent Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_DOC_VEN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_EGRESO_DETALLE_CO_EGRESO">
+          <End Role="CO_EGRESO" Type="Self.CO_EGRESO" Multiplicity="1" />
+          <End Role="CO_EGRESO_DETALLE" Type="Self.CO_EGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EGRESO">
+              <PropertyRef Name="EgresoID" />
+            </Principal>
+            <Dependent Role="CO_EGRESO_DETALLE">
+              <PropertyRef Name="EgresoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GRUPO_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CO_GRUPO" Type="Self.CO_GRUPO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_GRUPO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_GUIA_REMISION_CO_EMPRESA">
+          <End Role="CO_EMPRESA" Type="Self.CO_EMPRESA" Multiplicity="1" />
+          <End Role="CO_GUIA_REMISION" Type="Self.CO_GUIA_REMISION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_GUIA_REMISION">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_INGRESO_DETALLE_CO_INGRESO">
+          <End Role="CO_INGRESO" Type="Self.CO_INGRESO" Multiplicity="1" />
+          <End Role="CO_INGRESO_DETALLE" Type="Self.CO_INGRESO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_INGRESO">
+              <PropertyRef Name="IngresoID" />
+            </Principal>
+            <Dependent Role="CO_INGRESO_DETALLE">
+              <PropertyRef Name="IngresoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_MENU_CO_MENU">
+          <End Role="CO_MENU" Type="Self.CO_MENU" Multiplicity="0..1" />
+          <End Role="CO_MENU1" Type="Self.CO_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_MENU">
+              <PropertyRef Name="CO_MENU_ID" />
+            </Principal>
+            <Dependent Role="CO_MENU1">
+              <PropertyRef Name="CO_MENU_PADRE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MasterNet_WebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CO_ALMACEN" EntityType="Self.CO_ALMACEN" />
+          <EntitySet Name="CO_ARTICULO" EntityType="Self.CO_ARTICULO" />
+          <EntitySet Name="CO_BODEGA" EntityType="Self.CO_BODEGA" />
+          <EntitySet Name="CO_DETALLE_DOCUMENTO_COMPRA" EntityType="Self.CO_DETALLE_DOCUMENTO_COMPRA" />
+          <EntitySet Name="CO_DETALLE_DOCUMENTO_VENTA" EntityType="Self.CO_DETALLE_DOCUMENTO_VENTA" />
+          <EntitySet Name="CO_DETALLE_GUIA_REMISION" EntityType="Self.CO_DETALLE_GUIA_REMISION" />
+          <EntitySet Name="CO_DETALLE_PROFORMA" EntityType="Self.CO_DETALLE_PROFORMA" />
+          <EntitySet Name="CO_DETALLE_RETENCION" EntityType="Self.CO_DETALLE_RETENCION" />
+          <EntitySet Name="CO_DOCUMENTO_COMPRA" EntityType="Self.CO_DOCUMENTO_COMPRA" />
+          <EntitySet Name="CO_DOCUMENTO_VENTA" EntityType="Self.CO_DOCUMENTO_VENTA" />
+          <EntitySet Name="CO_EGRESO" EntityType="Self.CO_EGRESO" />
+          <EntitySet Name="CO_EGRESO_DETALLE" EntityType="Self.CO_EGRESO_DETALLE" />
+          <EntitySet Name="CO_EMPRESA" EntityType="Self.CO_EMPRESA" />
+          <EntitySet Name="CO_GRUPO" EntityType="Self.CO_GRUPO" />
+          <EntitySet Name="CO_GUIA_REMISION" EntityType="Self.CO_GUIA_REMISION" />
+          <EntitySet Name="CO_INGRESO" EntityType="Self.CO_INGRESO" />
+          <EntitySet Name="CO_INGRESO_DETALLE" EntityType="Self.CO_INGRESO_DETALLE" />
+          <EntitySet Name="CO_MENU" EntityType="Self.CO_MENU" />
+          <AssociationSet Name="FK_CO_ALMACEN_CO_EMPRESA" Association="Self.FK_CO_ALMACEN_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_ALMACEN" EntitySet="CO_ALMACEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_BODEGA_CO_ALMACEN" Association="Self.FK_CO_BODEGA_CO_ALMACEN">
+            <End Role="CO_ALMACEN" EntitySet="CO_ALMACEN" />
+            <End Role="CO_BODEGA" EntitySet="CO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_ARTICULO_CO_EMPRESA" Association="Self.FK_CO_ARTICULO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_EGRESO_DETALLE_CO_ARTICULO" Association="Self.FK_CO_EGRESO_DETALLE_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_EGRESO_DETALLE" EntitySet="CO_EGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_INGRESO_DETALLE_CO_ARTICULO" Association="Self.FK_CO_INGRESO_DETALLE_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_INGRESO_DETALLE" EntitySet="CO_INGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA" Association="Self.FK_CO_DETALLE_DOCUMENTO_COMPRA_CO_DOCUMENTO_COMPRA">
+            <End Role="CO_DOCUMENTO_COMPRA" EntitySet="CO_DOCUMENTO_COMPRA" />
+            <End Role="CO_DETALLE_DOCUMENTO_COMPRA" EntitySet="CO_DETALLE_DOCUMENTO_COMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1" Association="Self.FK_CO_DETALLE_DOCUMENTO_VENTA_CO_DOCUMENTO_VENTA1">
+            <End Role="CO_DOCUMENTO_VENTA" EntitySet="CO_DOCUMENTO_VENTA" />
+            <End Role="CO_DETALLE_DOCUMENTO_VENTA" EntitySet="CO_DETALLE_DOCUMENTO_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION" Association="Self.FK_CO_DETALLE_GUIA_REMISION_CO_DETALLE_GUIA_REMISION">
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+            <End Role="CO_DETALLE_GUIA_REMISION" EntitySet="CO_DETALLE_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA" Association="Self.FK_CO_GUIA_REMISION_CO_DOCUMENTO_VENTA">
+            <End Role="CO_DOCUMENTO_VENTA" EntitySet="CO_DOCUMENTO_VENTA" />
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_EGRESO_DETALLE_CO_EGRESO" Association="Self.FK_CO_EGRESO_DETALLE_CO_EGRESO">
+            <End Role="CO_EGRESO" EntitySet="CO_EGRESO" />
+            <End Role="CO_EGRESO_DETALLE" EntitySet="CO_EGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GRUPO_CO_EMPRESA" Association="Self.FK_CO_GRUPO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_GRUPO" EntitySet="CO_GRUPO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_GUIA_REMISION_CO_EMPRESA" Association="Self.FK_CO_GUIA_REMISION_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_GUIA_REMISION" EntitySet="CO_GUIA_REMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_INGRESO_DETALLE_CO_INGRESO" Association="Self.FK_CO_INGRESO_DETALLE_CO_INGRESO">
+            <End Role="CO_INGRESO" EntitySet="CO_INGRESO" />
+            <End Role="CO_INGRESO_DETALLE" EntitySet="CO_INGRESO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_MENU_CO_MENU" Association="Self.FK_CO_MENU_CO_MENU">
+            <End Role="CO_MENU" EntitySet="CO_MENU" />
+            <End Role="CO_MENU1" EntitySet="CO_MENU" />
+          </AssociationSet>
+          <EntitySet Name="CO_LISTA_PRECIO" EntityType="MasterNet_WebModel.CO_LISTA_PRECIO" />
+          <EntitySet Name="CO_TABLA_PRECIO" EntityType="MasterNet_WebModel.CO_TABLA_PRECIO" />
+          <AssociationSet Name="FK_CO_TABLA_PRECIO_CO_ARTICULO" Association="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_ARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_TABLA_PRECIO" EntitySet="CO_TABLA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_LISTA_PRECIO_CO_EMPRESA" Association="MasterNet_WebModel.FK_CO_LISTA_PRECIO_CO_EMPRESA">
+            <End Role="CO_EMPRESA" EntitySet="CO_EMPRESA" />
+            <End Role="CO_LISTA_PRECIO" EntitySet="CO_LISTA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO" Association="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO">
+            <End Role="CO_LISTA_PRECIO" EntitySet="CO_LISTA_PRECIO" />
+            <End Role="CO_TABLA_PRECIO" EntitySet="CO_TABLA_PRECIO" />
+          </AssociationSet>
+          <AssociationSet Name="CO_UBICACIONARTICULO" Association="MasterNet_WebModel.CO_UBICACIONARTICULO">
+            <End Role="CO_ARTICULO" EntitySet="CO_ARTICULO" />
+            <End Role="CO_BODEGA" EntitySet="CO_BODEGA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CO_LISTA_PRECIO">
+          <Key>
+            <PropertyRef Name="ListaDePrecioID" />
+          </Key>
+          <Property Name="ListaDePrecioID" Type="Guid" Nullable="false" />
+          <Property Name="CO_EMP_RUC" Type="String" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Rentabilidad" Type="Double" />
+          <NavigationProperty Name="CO_EMPRESA" Relationship="MasterNet_WebModel.FK_CO_LISTA_PRECIO_CO_EMPRESA" FromRole="CO_LISTA_PRECIO" ToRole="CO_EMPRESA" />
+          <NavigationProperty Name="CO_TABLA_PRECIO" Relationship="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO" FromRole="CO_LISTA_PRECIO" ToRole="CO_TABLA_PRECIO" />
+        </EntityType>
+        <EntityType Name="CO_TABLA_PRECIO">
+          <Key>
+            <PropertyRef Name="ListaDePrecioID" />
+            <PropertyRef Name="CO_ART_COD" />
+          </Key>
+          <Property Name="ListaDePrecioID" Type="Guid" Nullable="false" />
+          <Property Name="CO_ART_COD" Type="Guid" Nullable="false" />
+          <Property Name="CO_TAB_PRE" Type="Double" Nullable="false" />
+          <Property Name="CO_TAB_PRE_POR_ART" Type="Double" Nullable="false" />
+          <Property Name="CO_TAB_PRE_MIN" Type="Double" />
+          <NavigationProperty Name="CO_ARTICULO" Relationship="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_ARTICULO" FromRole="CO_TABLA_PRECIO" ToRole="CO_ARTICULO" />
+          <NavigationProperty Name="CO_LISTA_PRECIO" Relationship="MasterNet_WebModel.FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO" FromRole="CO_TABLA_PRECIO" ToRole="CO_LISTA_PRECIO" />
+        </EntityType>
+        <Association Name="FK_CO_TABLA_PRECIO_CO_ARTICULO">
+          <End Type="MasterNet_WebModel.CO_ARTICULO" Role="CO_ARTICULO" Multiplicity="1" />
+          <End Type="MasterNet_WebModel.CO_TABLA_PRECIO" Role="CO_TABLA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_ARTICULO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Principal>
+            <Dependent Role="CO_TABLA_PRECIO">
+              <PropertyRef Name="CO_ART_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_LISTA_PRECIO_CO_EMPRESA">
+          <End Type="MasterNet_WebModel.CO_EMPRESA" Role="CO_EMPRESA" Multiplicity="1" />
+          <End Type="MasterNet_WebModel.CO_LISTA_PRECIO" Role="CO_LISTA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_EMPRESA">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Principal>
+            <Dependent Role="CO_LISTA_PRECIO">
+              <PropertyRef Name="CO_EMP_RUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CO_TABLA_PRECIO_CO_LISTA_PRECIO">
+          <End Type="MasterNet_WebModel.CO_LISTA_PRECIO" Role="CO_LISTA_PRECIO" Multiplicity="1" />
+          <End Type="MasterNet_WebModel.CO_TABLA_PRECIO" Role="CO_TABLA_PRECIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CO_LISTA_PRECIO">
+              <PropertyRef Name="ListaDePrecioID" />
+            </Principal>
+            <Dependent Role="CO_TABLA_PRECIO">
+              <PropertyRef Name="ListaDePrecioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CO_UBICACIONARTICULO">
+          <End Type="MasterNet_WebModel.CO_ARTICULO" Role="CO_ARTICULO" Multiplicity="*" />
+          <End Type="MasterNet_WebModel.CO_BODEGA" Role="CO_BODEGA" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterNet_WebModelStoreContainer" CdmEntityContainer="MasterNet_WebEntities">
+          <EntitySetMapping Name="CO_ALMACEN">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_ALMACEN">
+              <MappingFragment StoreEntitySet="CO_ALMACEN">
+                <ScalarProperty Name="CO_ALM_COD" ColumnName="CO_ALM_COD" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_ALM_NOM" ColumnName="CO_ALM_NOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_ARTICULO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_ARTICULO">
+              <MappingFragment StoreEntitySet="CO_ARTICULO">
+                <ScalarProperty Name="CO_ART_COD" ColumnName="CO_ART_COD" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_CLA_FAM_ART_COD" ColumnName="CO_CLA_FAM_ART_COD" />
+                <ScalarProperty Name="CO_ART_NOM" ColumnName="CO_ART_NOM" />
+                <ScalarProperty Name="CO_ART_COD_FAB" ColumnName="CO_ART_COD_FAB" />
+                <ScalarProperty Name="CO_CLA_ART_MAR" ColumnName="CO_CLA_ART_MAR" />
+                <ScalarProperty Name="CO_ART_COL" ColumnName="CO_ART_COL" />
+                <ScalarProperty Name="CO_ART_EXI_MIN" ColumnName="CO_ART_EXI_MIN" />
+                <ScalarProperty Name="CO_ART_EXI_MAX" ColumnName="CO_ART_EXI_MAX" />
+                <ScalarProperty Name="CO_ART_UNI" ColumnName="CO_ART_UNI" />
+                <ScalarProperty Name="CO_ART_POR_IVA" ColumnName="CO_ART_POR_IVA" />
+                <ScalarProperty Name="CO_CLA_ART_TIP" ColumnName="CO_CLA_ART_TIP" />
+                <ScalarProperty Name="CO_ART_USU_ALI" ColumnName="CO_ART_USU_ALI" />
+                <ScalarProperty Name="CO_ICE_COD" ColumnName="CO_ICE_COD" />
+                <ScalarProperty Name="CO_ART_PRE_COS" ColumnName="CO_ART_PRE_COS" />
+                <ScalarProperty Name="CO_ART_PES" ColumnName="CO_ART_PES" />
+                <ScalarProperty Name="CO_ART_BAR" ColumnName="CO_ART_BAR" />
+                <ScalarProperty Name="CO_CLA_TIP_ART_COD" ColumnName="CO_CLA_TIP_ART_COD" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="UNIDAD_X_EMPAQUE" ColumnName="UNIDAD_X_EMPAQUE" />
+                <ScalarProperty Name="PRESENTACION" ColumnName="PRESENTACION" />
+                <ScalarProperty Name="CODIGO_BARRAS" ColumnName="CODIGO_BARRAS" />
+                <ScalarProperty Name="CO_ART_EST" ColumnName="CO_ART_EST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_BODEGA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_BODEGA">
+              <MappingFragment StoreEntitySet="CO_BODEGA">
+                <ScalarProperty Name="CO_BOD_COD" ColumnName="CO_BOD_COD" />
+                <ScalarProperty Name="CO_ALM_COD" ColumnName="CO_ALM_COD" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_BOD_NOM" ColumnName="CO_BOD_NOM" />
+                <ScalarProperty Name="CO_ESTADO" ColumnName="CO_ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DETALLE_DOCUMENTO_COMPRA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DETALLE_DOCUMENTO_COMPRA">
+              <MappingFragment StoreEntitySet="CO_DETALLE_DOCUMENTO_COMPRA">
+                <ScalarProperty Name="CO_DET_DOC_COM_COD" ColumnName="CO_DET_DOC_COM_COD" />
+                <ScalarProperty Name="CO_DOC_COM_ID" ColumnName="CO_DOC_COM_ID" />
+                <ScalarProperty Name="CO_DET_DOC_COM_ART_COD" ColumnName="CO_DET_DOC_COM_ART_COD" />
+                <ScalarProperty Name="CO_DET_DOC_COM_ART_NOM" ColumnName="CO_DET_DOC_COM_ART_NOM" />
+                <ScalarProperty Name="CO_DET_DOC_COM_CAN" ColumnName="CO_DET_DOC_COM_CAN" />
+                <ScalarProperty Name="CO_DET_DOC_COM_PRE" ColumnName="CO_DET_DOC_COM_PRE" />
+                <ScalarProperty Name="CO_DET_DOC_COM_DES" ColumnName="CO_DET_DOC_COM_DES" />
+                <ScalarProperty Name="CO_DET_DOC_COM_VAL_ICE" ColumnName="CO_DET_DOC_COM_VAL_ICE" />
+                <ScalarProperty Name="CO_DET_DOC_COM_IVA" ColumnName="CO_DET_DOC_COM_IVA" />
+                <ScalarProperty Name="CO_DET_DOC_COM_TOT" ColumnName="CO_DET_DOC_COM_TOT" />
+                <ScalarProperty Name="CO_DET_DOC_COM_TIP_ART" ColumnName="CO_DET_DOC_COM_TIP_ART" />
+                <ScalarProperty Name="CO_DET_DOC_COM_POR_ICE" ColumnName="CO_DET_DOC_COM_POR_ICE" />
+                <ScalarProperty Name="CO_DET_DOC_COM_POR_IVA" ColumnName="CO_DET_DOC_COM_POR_IVA" />
+                <ScalarProperty Name="CO_DET_DOC_COM_ART_BAR" ColumnName="CO_DET_DOC_COM_ART_BAR" />
+                <ScalarProperty Name="CO_CORRE_INV_DET_COM" ColumnName="CO_CORRE_INV_DET_COM" />
+                <ScalarProperty Name="CO_BOD_COD" ColumnName="CO_BOD_COD" />
+                <ScalarProperty Name="CO_BOD_NOM" ColumnName="CO_BOD_NOM" />
+                <ScalarProperty Name="CO_CANTIDAD_EMPAQUE" ColumnName="CO_CANTIDAD_EMPAQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DETALLE_DOCUMENTO_VENTA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DETALLE_DOCUMENTO_VENTA">
+              <MappingFragment StoreEntitySet="CO_DETALLE_DOCUMENTO_VENTA">
+                <ScalarProperty Name="CO_DET_DOC_VEN_COD" ColumnName="CO_DET_DOC_VEN_COD" />
+                <ScalarProperty Name="CO_DOC_VEN_ID" ColumnName="CO_DOC_VEN_ID" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_ART_COD" ColumnName="CO_DET_DOC_VEN_ART_COD" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_ART_NOM" ColumnName="CO_DET_DOC_VEN_ART_NOM" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_CAN" ColumnName="CO_DET_DOC_VEN_CAN" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_PRE" ColumnName="CO_DET_DOC_VEN_PRE" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_DES" ColumnName="CO_DET_DOC_VEN_DES" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_VAL_ICE" ColumnName="CO_DET_DOC_VEN_VAL_ICE" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_IVA" ColumnName="CO_DET_DOC_VEN_IVA" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_TOT" ColumnName="CO_DET_DOC_VEN_TOT" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_TIP_ART" ColumnName="CO_DET_DOC_VEN_TIP_ART" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_POR_ICE" ColumnName="CO_DET_DOC_VEN_POR_ICE" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_POR_IVA" ColumnName="CO_DET_DOC_VEN_POR_IVA" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_TIP_PRE" ColumnName="CO_DET_DOC_VEN_TIP_PRE" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_ART_BAR" ColumnName="CO_DET_DOC_VEN_ART_BAR" />
+                <ScalarProperty Name="CO_DET_DOC_VEN_ART_PRE_COS" ColumnName="CO_DET_DOC_VEN_ART_PRE_COS" />
+                <ScalarProperty Name="CO_ART_EXI_ACT" ColumnName="CO_ART_EXI_ACT" />
+                <ScalarProperty Name="CO_BOD_COD" ColumnName="CO_BOD_COD" />
+                <ScalarProperty Name="CO_CANTIDAD_EMPAQUE" ColumnName="CO_CANTIDAD_EMPAQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DETALLE_GUIA_REMISION">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DETALLE_GUIA_REMISION">
+              <MappingFragment StoreEntitySet="CO_DETALLE_GUIA_REMISION">
+                <ScalarProperty Name="CO_DET_GUI_REM_COD" ColumnName="CO_DET_GUI_REM_COD" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_COD" ColumnName="CO_DOC_VEN_GUI_COD" />
+                <ScalarProperty Name="CO_DET_GUI_REM_CAN" ColumnName="CO_DET_GUI_REM_CAN" />
+                <ScalarProperty Name="CO_DET_GUI_REM_DES" ColumnName="CO_DET_GUI_REM_DES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DETALLE_PROFORMA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DETALLE_PROFORMA">
+              <MappingFragment StoreEntitySet="CO_DETALLE_PROFORMA">
+                <ScalarProperty Name="CO_DET_PRO_COD" ColumnName="CO_DET_PRO_COD" />
+                <ScalarProperty Name="CO_PRO_COD" ColumnName="CO_PRO_COD" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_DET_PRO_ART_COD" ColumnName="CO_DET_PRO_ART_COD" />
+                <ScalarProperty Name="CO_DET_PRO_ART_NOM" ColumnName="CO_DET_PRO_ART_NOM" />
+                <ScalarProperty Name="CO_DET_PRO_CAN" ColumnName="CO_DET_PRO_CAN" />
+                <ScalarProperty Name="CO_DET_PRO_PRE" ColumnName="CO_DET_PRO_PRE" />
+                <ScalarProperty Name="CO_DET_PRO_DES" ColumnName="CO_DET_PRO_DES" />
+                <ScalarProperty Name="CO_DET_PRO_TOT" ColumnName="CO_DET_PRO_TOT" />
+                <ScalarProperty Name="CO_DET_PRO_TIP_ART" ColumnName="CO_DET_PRO_TIP_ART" />
+                <ScalarProperty Name="CO_DET_PRO_IVA" ColumnName="CO_DET_PRO_IVA" />
+                <ScalarProperty Name="CO_DET_PRO_CAN_EXI" ColumnName="CO_DET_PRO_CAN_EXI" />
+                <ScalarProperty Name="CO_DET_PRO_TIP_PRE" ColumnName="CO_DET_PRO_TIP_PRE" />
+                <ScalarProperty Name="CO_DET_PRO_ART_BAR" ColumnName="CO_DET_PRO_ART_BAR" />
+                <ScalarProperty Name="CANTIDAD_PROCESADA" ColumnName="CANTIDAD_PROCESADA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CANTIDAD_FACTURAR" ColumnName="CANTIDAD_FACTURAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DETALLE_RETENCION">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DETALLE_RETENCION">
+              <MappingFragment StoreEntitySet="CO_DETALLE_RETENCION">
+                <ScalarProperty Name="CO_DET_RET_ID" ColumnName="CO_DET_RET_ID" />
+                <ScalarProperty Name="CO_RET_COD" ColumnName="CO_RET_COD" />
+                <ScalarProperty Name="CO_RET_BAS" ColumnName="CO_RET_BAS" />
+                <ScalarProperty Name="CO_RET_DET_COD" ColumnName="CO_RET_DET_COD" />
+                <ScalarProperty Name="CO_TIP_RET_NOM" ColumnName="CO_TIP_RET_NOM" />
+                <ScalarProperty Name="CO_TIP_RET_COD_SRI" ColumnName="CO_TIP_RET_COD_SRI" />
+                <ScalarProperty Name="CO_RET_POR" ColumnName="CO_RET_POR" />
+                <ScalarProperty Name="CO_RET_VAL" ColumnName="CO_RET_VAL" />
+                <ScalarProperty Name="CO_RET_DET_CUE" ColumnName="CO_RET_DET_CUE" />
+                <ScalarProperty Name="CO_RET_DET_IMP" ColumnName="CO_RET_DET_IMP" />
+                <ScalarProperty Name="CO_TIP_RET_COD" ColumnName="CO_TIP_RET_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DOCUMENTO_COMPRA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DOCUMENTO_COMPRA">
+              <MappingFragment StoreEntitySet="CO_DOCUMENTO_COMPRA">
+                <ScalarProperty Name="CO_DOC_COM_ID" ColumnName="CO_DOC_COM_ID" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="AlmacenID" ColumnName="AlmacenID" />
+                <ScalarProperty Name="CO_PRO_COD" ColumnName="CO_PRO_COD" />
+                <ScalarProperty Name="CO_CLA_SUS_COD" ColumnName="CO_CLA_SUS_COD" />
+                <ScalarProperty Name="CO_CLA_COM_COM_COD" ColumnName="CO_CLA_COM_COM_COD" />
+                <ScalarProperty Name="CO_DOC_COM_NUM" ColumnName="CO_DOC_COM_NUM" />
+                <ScalarProperty Name="CO_DOC_COM_FEC_CAD" ColumnName="CO_DOC_COM_FEC_CAD" />
+                <ScalarProperty Name="CO_DOC_COM_ETA" ColumnName="CO_DOC_COM_ETA" />
+                <ScalarProperty Name="CO_DOC_COM_PUN_EMI" ColumnName="CO_DOC_COM_PUN_EMI" />
+                <ScalarProperty Name="CO_DOC_COM_SEC" ColumnName="CO_DOC_COM_SEC" />
+                <ScalarProperty Name="CO_DOC_COM_DET" ColumnName="CO_DOC_COM_DET" />
+                <ScalarProperty Name="CO_DOC_COM_NUM_AUT" ColumnName="CO_DOC_COM_NUM_AUT" />
+                <ScalarProperty Name="CO_DOC_COM_FEC_EMI" ColumnName="CO_DOC_COM_FEC_EMI" />
+                <ScalarProperty Name="CO_DOC_COM_FEC_REG" ColumnName="CO_DOC_COM_FEC_REG" />
+                <ScalarProperty Name="CO_DOC_COM_EST" ColumnName="CO_DOC_COM_EST" />
+                <ScalarProperty Name="CO_DOC_COM_TOT_NET" ColumnName="CO_DOC_COM_TOT_NET" />
+                <ScalarProperty Name="CO_DOC_COM_POR_DES" ColumnName="CO_DOC_COM_POR_DES" />
+                <ScalarProperty Name="CO_DOC_COM_DES" ColumnName="CO_DOC_COM_DES" />
+                <ScalarProperty Name="CO_DOC_COM_POR_IVA" ColumnName="CO_DOC_COM_POR_IVA" />
+                <ScalarProperty Name="CO_DOC_COM_IVA" ColumnName="CO_DOC_COM_IVA" />
+                <ScalarProperty Name="CO_DOC_COM_TOT_PAG" ColumnName="CO_DOC_COM_TOT_PAG" />
+                <ScalarProperty Name="CO_DOC_COM_FOR_PAG" ColumnName="CO_DOC_COM_FOR_PAG" />
+                <ScalarProperty Name="CO_DOC_COM_EFE" ColumnName="CO_DOC_COM_EFE" />
+                <ScalarProperty Name="CO_DOC_COM_EFE_VAL" ColumnName="CO_DOC_COM_EFE_VAL" />
+                <ScalarProperty Name="CO_DOC_COM_CHE" ColumnName="CO_DOC_COM_CHE" />
+                <ScalarProperty Name="CO_DOC_COM_CHE_VAL" ColumnName="CO_DOC_COM_CHE_VAL" />
+                <ScalarProperty Name="CO_DOC_COM_CHE_NUM" ColumnName="CO_DOC_COM_CHE_NUM" />
+                <ScalarProperty Name="CO_DOC_COM_CHE_NUM_CUE" ColumnName="CO_DOC_COM_CHE_NUM_CUE" />
+                <ScalarProperty Name="CO_DOC_COM_NUM_PAG" ColumnName="CO_DOC_COM_NUM_PAG" />
+                <ScalarProperty Name="CO_DOC_COM_USU_ALI" ColumnName="CO_DOC_COM_USU_ALI" />
+                <ScalarProperty Name="CO_DOC_COM_TOT_LET" ColumnName="CO_DOC_COM_TOT_LET" />
+                <ScalarProperty Name="CO_DOC_COM_VAL_ICE" ColumnName="CO_DOC_COM_VAL_ICE" />
+                <ScalarProperty Name="CO_DOC_COM_VAL_IVA0" ColumnName="CO_DOC_COM_VAL_IVA0" />
+                <ScalarProperty Name="CO_DOC_COM_CORRE_INV" ColumnName="CO_DOC_COM_CORRE_INV" />
+                <ScalarProperty Name="CO_DOC_COM_FEC_PAGO" ColumnName="CO_DOC_COM_FEC_PAGO" />
+                <ScalarProperty Name="CO_DOC_COM_DIAS_PLA" ColumnName="CO_DOC_COM_DIAS_PLA" />
+                <ScalarProperty Name="CO_DOC_ESTADO_DE_PAGO" ColumnName="CO_DOC_ESTADO_DE_PAGO" />
+                <ScalarProperty Name="CO_DOC_COM_TAR" ColumnName="CO_DOC_COM_TAR" />
+                <ScalarProperty Name="CO_DOC_COM_TAR_VAL" ColumnName="CO_DOC_COM_TAR_VAL" />
+                <ScalarProperty Name="CO_DOC_COM_TAR_NUM" ColumnName="CO_DOC_COM_TAR_NUM" />
+                <ScalarProperty Name="CO_DOC_COM_TAR_VAU" ColumnName="CO_DOC_COM_TAR_VAU" />
+                <ScalarProperty Name="CO_DOC_COM_CHE_FEC" ColumnName="CO_DOC_COM_CHE_FEC" />
+                <ScalarProperty Name="CO_DOC_COM_TRA" ColumnName="CO_DOC_COM_TRA" />
+                <ScalarProperty Name="CO_DOC_COM_TRA_VAL" ColumnName="CO_DOC_COM_TRA_VAL" />
+                <ScalarProperty Name="CO_DOC_COM_TRA_DOC_NUM" ColumnName="CO_DOC_COM_TRA_DOC_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_DOCUMENTO_VENTA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_DOCUMENTO_VENTA">
+              <MappingFragment StoreEntitySet="CO_DOCUMENTO_VENTA">
+                <ScalarProperty Name="CO_DOC_VEN_ID" ColumnName="CO_DOC_VEN_ID" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_TIP_DOC_VEN_NUM" ColumnName="CO_TIP_DOC_VEN_NUM" />
+                <ScalarProperty Name="CO_CLI_COD" ColumnName="CO_CLI_COD" />
+                <ScalarProperty Name="CO_VEN_ID" ColumnName="CO_VEN_ID" />
+                <ScalarProperty Name="CO_DOC_VEN_NUM" ColumnName="CO_DOC_VEN_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_FEC" ColumnName="CO_DOC_VEN_FEC" />
+                <ScalarProperty Name="CO_DOC_VEN_EST" ColumnName="CO_DOC_VEN_EST" />
+                <ScalarProperty Name="CO_DOC_VEN_DET" ColumnName="CO_DOC_VEN_DET" />
+                <ScalarProperty Name="CO_DOC_VEN_TOT_NET" ColumnName="CO_DOC_VEN_TOT_NET" />
+                <ScalarProperty Name="CO_DOC_VEN_POR_DES" ColumnName="CO_DOC_VEN_POR_DES" />
+                <ScalarProperty Name="CO_DOC_VEN_DES" ColumnName="CO_DOC_VEN_DES" />
+                <ScalarProperty Name="CO_DOC_VEN_POR_IVA" ColumnName="CO_DOC_VEN_POR_IVA" />
+                <ScalarProperty Name="CO_DOC_VEN_IVA" ColumnName="CO_DOC_VEN_IVA" />
+                <ScalarProperty Name="CO_DOC_VEN_TOT_PAG" ColumnName="CO_DOC_VEN_TOT_PAG" />
+                <ScalarProperty Name="CO_DOC_VEN_FOR_PAG" ColumnName="CO_DOC_VEN_FOR_PAG" />
+                <ScalarProperty Name="CO_DOC_VEN_EFE" ColumnName="CO_DOC_VEN_EFE" />
+                <ScalarProperty Name="CO_DOC_VEN_EFE_VAL" ColumnName="CO_DOC_VEN_EFE_VAL" />
+                <ScalarProperty Name="CO_DOC_VEN_CHE" ColumnName="CO_DOC_VEN_CHE" />
+                <ScalarProperty Name="CO_DOC_VEN_CHE_VAL" ColumnName="CO_DOC_VEN_CHE_VAL" />
+                <ScalarProperty Name="CO_DOC_VEN_CHE_NUM" ColumnName="CO_DOC_VEN_CHE_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_CHE_BAN" ColumnName="CO_DOC_VEN_CHE_BAN" />
+                <ScalarProperty Name="CO_DOC_VEN_TAR" ColumnName="CO_DOC_VEN_TAR" />
+                <ScalarProperty Name="CO_DOC_VEN_TAR_VAL" ColumnName="CO_DOC_VEN_TAR_VAL" />
+                <ScalarProperty Name="CO_DOC_VEN_TAR_NUM" ColumnName="CO_DOC_VEN_TAR_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_TAR_VAU" ColumnName="CO_DOC_VEN_TAR_VAU" />
+                <ScalarProperty Name="CO_DOC_VEN_NUM_PAG" ColumnName="CO_DOC_VEN_NUM_PAG" />
+                <ScalarProperty Name="CO_DOC_VEN_USU_ALI" ColumnName="CO_DOC_VEN_USU_ALI" />
+                <ScalarProperty Name="CO_DOC_VEN_TOT_LET" ColumnName="CO_DOC_VEN_TOT_LET" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_NUM" ColumnName="CO_DOC_VEN_GUI_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_FEC_INI" ColumnName="CO_DOC_VEN_GUI_FEC_INI" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_FEC_TER" ColumnName="CO_DOC_VEN_GUI_FEC_TER" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_TIP" ColumnName="CO_DOC_VEN_GUI_TIP" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_NOM_TRA" ColumnName="CO_DOC_VEN_GUI_NOM_TRA" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_IDE" ColumnName="CO_DOC_VEN_GUI_IDE" />
+                <ScalarProperty Name="CO_DOC_VEN_VAL_ICE" ColumnName="CO_DOC_VEN_VAL_ICE" />
+                <ScalarProperty Name="CO_DOC_VEN_VAL_IVA0" ColumnName="CO_DOC_VEN_VAL_IVA0" />
+                <ScalarProperty Name="CO_DOC_VEN_TIP_PRE" ColumnName="CO_DOC_VEN_TIP_PRE" />
+                <ScalarProperty Name="CO_COM_NUM_RET" ColumnName="CO_COM_NUM_RET" />
+                <ScalarProperty Name="CO_DOC_VEN_CHE_FEC" ColumnName="CO_DOC_VEN_CHE_FEC" />
+                <ScalarProperty Name="CO_DOC_VEN_OTR" ColumnName="CO_DOC_VEN_OTR" />
+                <ScalarProperty Name="CO_DOC_VEN_TAR_NOM" ColumnName="CO_DOC_VEN_TAR_NOM" />
+                <ScalarProperty Name="AlmacenID" ColumnName="AlmacenID" />
+                <ScalarProperty Name="CO_DOC_VEN_DIAS_PLA" ColumnName="CO_DOC_VEN_DIAS_PLA" />
+                <ScalarProperty Name="CO_DOC_VEN_FEC_PAGO" ColumnName="CO_DOC_VEN_FEC_PAGO" />
+                <ScalarProperty Name="CO_DOC_VEN_TRA" ColumnName="CO_DOC_VEN_TRA" />
+                <ScalarProperty Name="CO_DOC_VEN_TRA_VAL" ColumnName="CO_DOC_VEN_TRA_VAL" />
+                <ScalarProperty Name="CO_DOC_VEN_TRA_DOC_NUM" ColumnName="CO_DOC_VEN_TRA_DOC_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_ORIGINAL_ID" ColumnName="CO_DOC_VEN_ORIGINAL_ID" />
+                <ScalarProperty Name="CO_RESERVA_ID" ColumnName="CO_RESERVA_ID" />
+                <ScalarProperty Name="CO_PROFORMA_ID" ColumnName="CO_PROFORMA_ID" />
+                <ScalarProperty Name="FORMA_PAGO_ID" ColumnName="FORMA_PAGO_ID" />
+                <ScalarProperty Name="CO_DOC_VEN_CRE_FOR" ColumnName="CO_DOC_VEN_CRE_FOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_EGRESO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_EGRESO">
+              <MappingFragment StoreEntitySet="CO_EGRESO">
+                <ScalarProperty Name="EgresoID" ColumnName="EgresoID" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="BodegaOrigenID" ColumnName="BodegaOrigenID" />
+                <ScalarProperty Name="BodegaDestinoID" ColumnName="BodegaDestinoID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="AlmacenID" ColumnName="AlmacenID" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_EGRESO_DETALLE">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_EGRESO_DETALLE">
+              <MappingFragment StoreEntitySet="CO_EGRESO_DETALLE">
+                <ScalarProperty Name="DetalleEgresoID" ColumnName="DetalleEgresoID" />
+                <ScalarProperty Name="EgresoID" ColumnName="EgresoID" />
+                <ScalarProperty Name="CO_ART_COD" ColumnName="CO_ART_COD" />
+                <ScalarProperty Name="CO_ART_NOM" ColumnName="CO_ART_NOM" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_EMPRESA">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_EMPRESA">
+              <MappingFragment StoreEntitySet="CO_EMPRESA">
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_EMP_NOM" ColumnName="CO_EMP_NOM" />
+                <ScalarProperty Name="CO_EMP_NOM_REP" ColumnName="CO_EMP_NOM_REP" />
+                <ScalarProperty Name="CO_EMP_NOM_CON" ColumnName="CO_EMP_NOM_CON" />
+                <ScalarProperty Name="CO_EMP_REG_CON" ColumnName="CO_EMP_REG_CON" />
+                <ScalarProperty Name="CO_EMP_DIR" ColumnName="CO_EMP_DIR" />
+                <ScalarProperty Name="CO_CLA_CIU" ColumnName="CO_CLA_CIU" />
+                <ScalarProperty Name="CO_EMP_TEL" ColumnName="CO_EMP_TEL" />
+                <ScalarProperty Name="CO_EMP_FAX" ColumnName="CO_EMP_FAX" />
+                <ScalarProperty Name="CO_CLA_TIP_IDE" ColumnName="CO_CLA_TIP_IDE" />
+                <ScalarProperty Name="CO_EMP_REP_IDE" ColumnName="CO_EMP_REP_IDE" />
+                <ScalarProperty Name="CO_EMP_RUC_CON" ColumnName="CO_EMP_RUC_CON" />
+                <ScalarProperty Name="CO_EMP_MAI" ColumnName="CO_EMP_MAI" />
+                <ScalarProperty Name="CO_EMP_RAZ_SOC" ColumnName="CO_EMP_RAZ_SOC" />
+                <ScalarProperty Name="CO_CONTRIBUYENTE_ESPECIAL" ColumnName="CO_CONTRIBUYENTE_ESPECIAL" />
+                <ScalarProperty Name="CO_CONTRIBUYENTE_NUMERO" ColumnName="CO_CONTRIBUYENTE_NUMERO" />
+                <ScalarProperty Name="CO_OBLIGADO_CONTABILIDAD" ColumnName="CO_OBLIGADO_CONTABILIDAD" />
+                <ScalarProperty Name="CO_EMPRESA_LOGO" ColumnName="CO_EMPRESA_LOGO" />
+                <ScalarProperty Name="CO_EMPRESA_LOGO_FILE" ColumnName="CO_EMPRESA_LOGO_FILE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_GRUPO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_GRUPO">
+              <MappingFragment StoreEntitySet="CO_GRUPO">
+                <ScalarProperty Name="CO_GRU_COD" ColumnName="CO_GRU_COD" />
+                <ScalarProperty Name="CO_GRU_NOM" ColumnName="CO_GRU_NOM" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_EMP_ESCONTADOR" ColumnName="CO_EMP_ESCONTADOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_GUIA_REMISION">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_GUIA_REMISION">
+              <MappingFragment StoreEntitySet="CO_GUIA_REMISION">
+                <ScalarProperty Name="CO_DOC_VEN_GUI_COD" ColumnName="CO_DOC_VEN_GUI_COD" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="CO_DOC_VEN_ID" ColumnName="CO_DOC_VEN_ID" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_NUM" ColumnName="CO_DOC_VEN_GUI_NUM" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_FEC_INI" ColumnName="CO_DOC_VEN_GUI_FEC_INI" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_FEC_TER" ColumnName="CO_DOC_VEN_GUI_FEC_TER" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_DES" ColumnName="CO_DOC_VEN_GUI_DES" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_TIP" ColumnName="CO_DOC_VEN_GUI_TIP" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_NOM_TRA" ColumnName="CO_DOC_VEN_GUI_NOM_TRA" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_IDE" ColumnName="CO_DOC_VEN_GUI_IDE" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_PLACA" ColumnName="CO_DOC_VEN_GUI_PLACA" />
+                <ScalarProperty Name="CO_ESTADO" ColumnName="CO_ESTADO" />
+                <ScalarProperty Name="CO_DOC_VEN_GUI_FEC_REG" ColumnName="CO_DOC_VEN_GUI_FEC_REG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_INGRESO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_INGRESO">
+              <MappingFragment StoreEntitySet="CO_INGRESO">
+                <ScalarProperty Name="IngresoID" ColumnName="IngresoID" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="BodegaOrigenID" ColumnName="BodegaOrigenID" />
+                <ScalarProperty Name="BodegaDestinoID" ColumnName="BodegaDestinoID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Transferencia" ColumnName="Transferencia" />
+                <ScalarProperty Name="AlmacenID" ColumnName="AlmacenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_INGRESO_DETALLE">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_INGRESO_DETALLE">
+              <MappingFragment StoreEntitySet="CO_INGRESO_DETALLE">
+                <ScalarProperty Name="DetalleIngresoID" ColumnName="DetalleIngresoID" />
+                <ScalarProperty Name="IngresoID" ColumnName="IngresoID" />
+                <ScalarProperty Name="CO_ART_COD" ColumnName="CO_ART_COD" />
+                <ScalarProperty Name="CO_ART_NOM" ColumnName="CO_ART_NOM" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_MENU">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_MENU">
+              <MappingFragment StoreEntitySet="CO_MENU">
+                <ScalarProperty Name="CO_MENU_ID" ColumnName="CO_MENU_ID" />
+                <ScalarProperty Name="CO_MENU_PADRE_ID" ColumnName="CO_MENU_PADRE_ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DISPONIBLE" ColumnName="DISPONIBLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_LISTA_PRECIO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_LISTA_PRECIO">
+              <MappingFragment StoreEntitySet="CO_LISTA_PRECIO">
+                <ScalarProperty Name="Rentabilidad" ColumnName="Rentabilidad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CO_EMP_RUC" ColumnName="CO_EMP_RUC" />
+                <ScalarProperty Name="ListaDePrecioID" ColumnName="ListaDePrecioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CO_TABLA_PRECIO">
+            <EntityTypeMapping TypeName="MasterNet_WebModel.CO_TABLA_PRECIO">
+              <MappingFragment StoreEntitySet="CO_TABLA_PRECIO">
+                <ScalarProperty Name="CO_TAB_PRE_MIN" ColumnName="CO_TAB_PRE_MIN" />
+                <ScalarProperty Name="CO_TAB_PRE_POR_ART" ColumnName="CO_TAB_PRE_POR_ART" />
+                <ScalarProperty Name="CO_TAB_PRE" ColumnName="CO_TAB_PRE" />
+                <ScalarProperty Name="CO_ART_COD" ColumnName="CO_ART_COD" />
+                <ScalarProperty Name="ListaDePrecioID" ColumnName="ListaDePrecioID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CO_UBICACIONARTICULO" TypeName="MasterNet_WebModel.CO_UBICACIONARTICULO" StoreEntitySet="CO_UBICACIONARTICULO">
+            <EndProperty Name="CO_BODEGA">
+              <ScalarProperty Name="CO_BOD_COD" ColumnName="CO_BOD_COD" />
+            </EndProperty>
+            <EndProperty Name="CO_ARTICULO">
+              <ScalarProperty Name="CO_ART_COD" ColumnName="CO_ART_COD" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
