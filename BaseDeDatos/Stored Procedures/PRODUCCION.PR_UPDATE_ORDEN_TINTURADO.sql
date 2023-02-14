@@ -1,0 +1,31 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [PRODUCCION].[PR_UPDATE_ORDEN_TINTURADO]
+@CO_TINTURADO_ID INT
+,@PR_PRO_COD nvarchar(10)
+           ,@PR_PRO_NOM nvarchar(100)
+           ,@CO_EMP_RUC char(13)
+           ,@GAMA_COLOR nvarchar(20)
+           ,@CANTIDAD_KG float
+           ,@CANTIDAD_METROS float
+           ,@CANTIDAD_PROCESADO float
+           ,@FECHA_FIN_PROCESO datetime
+           --,@ESTADO varchar(20)
+		   ,@PRIORIDAD varchar(10)
+AS
+UPDATE [PRODUCCION].[ORDEN_TINTURADO]
+           set [PR_PRO_COD]=@PR_PRO_COD
+           ,[PR_PRO_NOM]=@PR_PRO_NOM
+           ,[CO_EMP_RUC]=@CO_EMP_RUC
+           ,[GAMA_COLOR]=@GAMA_COLOR
+           ,[CANTIDAD_KG]=@CANTIDAD_KG
+           ,[CANTIDAD_METROS]=@CANTIDAD_METROS
+           ,[CANTIDAD_PROCESADO]=@CANTIDAD_PROCESADO
+           ,[FECHA_FIN_PROCESO]=@FECHA_FIN_PROCESO
+           --,[ESTADO]=@ESTADO
+		   ,[PRIORIDAD]=@PRIORIDAD
+     where CO_TINTURADO_ID=@CO_TINTURADO_ID
+
+GO

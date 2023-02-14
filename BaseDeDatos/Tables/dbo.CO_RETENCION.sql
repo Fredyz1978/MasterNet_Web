@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[CO_RETENCION]
+(
+[CO_RET_COD] [uniqueidentifier] NOT NULL,
+[CO_EMP_RUC] [char] (13) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_DOC_VEN_ID] [uniqueidentifier] NULL,
+[CO_DOC_COM_ID] [uniqueidentifier] NULL,
+[CO_RET_SER1] [nchar] (3) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_SER2] [nchar] (3) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_NUM_REF] [varchar] (10) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_RET_AUT] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_BEN_NOM] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_RET_BEN_NUM_RUC] [char] (13) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_RET_BEN_DIR] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_BEN_FEC_EMI] [datetime] NULL,
+[CO_RET_EJE_FIS] [varchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_TIP] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_EMI] [nvarchar] (80) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_RET_USU_ALI] [varchar] (15) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_ESTADO] [int] NOT NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[CO_RETENCION] ADD CONSTRAINT [PK_CO_RETENCION] PRIMARY KEY CLUSTERED ([CO_RET_COD]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[CO_RETENCION] ADD CONSTRAINT [FK_CO_RETENCION_CO_EMPRESA] FOREIGN KEY ([CO_EMP_RUC]) REFERENCES [dbo].[CO_EMPRESA] ([CO_EMP_RUC])
+GO

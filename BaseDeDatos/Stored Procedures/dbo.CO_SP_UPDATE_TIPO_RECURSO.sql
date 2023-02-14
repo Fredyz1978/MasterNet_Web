@@ -1,0 +1,15 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[CO_SP_UPDATE_TIPO_RECURSO]
+        (@CO_TIP_REC_COD int
+           ,@CO_EMP_RUC char(13)
+           ,@CO_TIP_REC_NOM nvarchar(50))
+AS
+UPDATE [dbo].[CO_TIPO_RECURSO] SET
+           [CO_TIP_REC_NOM]=@CO_TIP_REC_NOM
+     WHERE
+           [CO_TIP_REC_COD]=@CO_TIP_REC_COD
+           AND [CO_EMP_RUC]=@CO_EMP_RUC
+GO

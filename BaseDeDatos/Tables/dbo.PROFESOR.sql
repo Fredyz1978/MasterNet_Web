@@ -1,0 +1,48 @@
+CREATE TABLE [dbo].[PROFESOR]
+(
+[PROF_COD] [char] (10) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_NOM] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_APE] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_DIR] [varchar] (150) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_TEL] [varchar] (7) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_EMA] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_NAC_PRO] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_NAC_CAN] [varchar] (50) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_NAC_PAR] [varchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_NAC_FEC] [datetime] NOT NULL,
+[PROF_NUM_AFI] [varchar] (15) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_EST_CIV] [varchar] (20) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_ANO_EXP] [int] NULL,
+[PROF_FEC_ING] [datetime] NOT NULL,
+[PROF_INS_NOM] [varchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_INS_DIR] [varchar] (100) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_INS_TEL] [varchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_SEX] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[PROF_NUM_CAR] [int] NULL,
+[PROF_SUE] [float] NOT NULL,
+[PROF_APO_IES] [bit] NOT NULL,
+[PROF_IMP_REN] [bit] NOT NULL,
+[PROF_MAT] [bit] NOT NULL,
+[CO_CAR_COD] [int] NOT NULL,
+[CO_EMP_RUC] [char] (13) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_UBI_COD] [int] NOT NULL,
+[PROF_TIP_CON] [nvarchar] (15) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_REF_NOM] [nvarchar] (70) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_REF_PAR] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_REF_TEL] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_REF_CEL] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_CUE_TIP] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_CUE_BAN] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_CUE_NUM] [nvarchar] (30) COLLATE Modern_Spanish_CI_AS NULL,
+[PROF_TRA_TIE_COM] [bit] NULL,
+[PROF_TRA_TIE_HOR] [bit] NULL,
+[PROF_TRA_VAL_HOR] [float] NULL,
+[PROF_EST] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[PROFESOR] ADD CONSTRAINT [PK_PROFESOR] PRIMARY KEY CLUSTERED ([PROF_COD]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[PROFESOR] ADD CONSTRAINT [FK_PROFESOR_CO_CARGO] FOREIGN KEY ([CO_CAR_COD]) REFERENCES [dbo].[CO_CARGO] ([CO_CAR_COD])
+GO
+ALTER TABLE [dbo].[PROFESOR] ADD CONSTRAINT [FK_PROFESOR_CO_UBICACION_AF] FOREIGN KEY ([CO_EMP_RUC], [CO_UBI_COD]) REFERENCES [dbo].[CO_UBICACION_AF] ([CO_EMP_RUC], [CO_UBI_COD])
+GO

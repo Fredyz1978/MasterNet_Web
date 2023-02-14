@@ -1,0 +1,5 @@
+SET QUOTED_IDENTIFIER OFF
+GO
+/****** Object:  Default [dbo].[NOTA_SUPLE_DEFAULT]    Script Date: 03/31/2014 10:14:39 ******/
+CREATE DEFAULT [dbo].[NOTA_SUPLE_DEFAULT] AS 0
+GO

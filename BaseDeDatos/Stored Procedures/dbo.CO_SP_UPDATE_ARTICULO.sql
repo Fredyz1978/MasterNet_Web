@@ -1,0 +1,53 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[CO_SP_UPDATE_ARTICULO]
+			@CO_ART_COD nvarchar(50)
+           ,@CO_EMP_RUC char(13)
+           ,@CO_FAM_ART_COD int
+           ,@CO_ART_NOM nvarchar(100)
+           ,@CO_ART_COD_FAB nvarchar(50)
+           ,@CO_ART_MAR nvarchar(50)
+           ,@CO_ART_COL nvarchar(20)
+           ,@CO_ART_EXI_MIN int
+           ,@CO_ART_EXI_MAX int
+           ,@CO_ART_UNI nvarchar(50)
+           ,@CO_ART_POR_IVA float
+           ,@CO_ART_TIP nvarchar(15)
+		   ,@CO_ART_USU_ALI nvarchar(15)
+			,@CO_ICE_COD INT
+			,@CO_ART_PRE_COS float
+			,@CO_ART_PES float
+			,@CO_ART_BAR NVARCHAR(50)
+			,@CO_TIP_ART_COD NVARCHAR(10)
+			,@DESCRIPCION NVARCHAR(500)
+			,@UNIDAD_X_EMPAQUE INT 
+			,@PRESENTACION VARCHAR(50)
+			,@CODIGO_BARRAS VARBINARY(MAX)
+			,@CO_ART_EST varchar(10)
+AS
+UPDATE [dbo].[CO_ARTICULO] SET
+           [CO_FAM_ART_COD]=@CO_FAM_ART_COD
+           ,[CO_ART_NOM]=@CO_ART_NOM
+           ,[CO_ART_COD_FAB]=@CO_ART_COD_FAB
+           ,[CO_ART_MAR]=@CO_ART_MAR
+           ,[CO_ART_COL]=@CO_ART_COL
+           ,[CO_ART_EXI_MIN]=@CO_ART_EXI_MIN
+           ,[CO_ART_EXI_MAX]=@CO_ART_EXI_MAX
+           ,[CO_ART_UNI]=@CO_ART_UNI
+           ,[CO_ART_POR_IVA]=@CO_ART_POR_IVA
+           ,[CO_ART_TIP]=@CO_ART_TIP
+			,CO_ICE_COD=@CO_ICE_COD
+			,CO_ART_PRE_COS=@CO_ART_PRE_COS
+			,CO_ART_PES=@CO_ART_PES
+			,CO_ART_BAR=@CO_ART_BAR
+			,CO_TIP_ART_COD=@CO_TIP_ART_COD
+			,DESCRIPCION=@DESCRIPCION
+			,UNIDAD_X_EMPAQUE=@UNIDAD_X_EMPAQUE 
+			,PRESENTACION=@PRESENTACION
+			,CODIGO_BARRAS=@CODIGO_BARRAS
+			,CO_ART_EST=@CO_ART_EST
+     WHERE ([CO_ART_COD]=@CO_ART_COD
+           AND [CO_EMP_RUC]=@CO_EMP_RUC)
+GO

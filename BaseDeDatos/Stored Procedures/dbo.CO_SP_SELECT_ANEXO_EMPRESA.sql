@@ -1,0 +1,15 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+-- Stored Procedure
+
+CREATE PROC [dbo].[CO_SP_SELECT_ANEXO_EMPRESA]
+@CO_EMP_RUC CHAR(13)
+AS
+SELECT CO_EMP_RUC AS IdInformante, CO_EMP_RAZ_SOC AS razonSocial, CO_EMP_DIR AS direccionMatriz, CO_EMP_TEL AS telefono, CO_EMP_MAI AS email, 
+CO_EMP_TIP_IDE AS tpIdRepre, CO_EMP_REP_IDE AS idRepre, CO_EMP_RUC_CON AS rucContador, '2006' AS Anio, '08' AS Mes,
+'001' as numEstabRuc, 'IVA' as codigoOperativo
+FROM dbo.CO_EMPRESA
+WHERE CO_EMP_RUC=@CO_EMP_RUC
+GO

@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE PROC [dbo].[CO_SP_SELECT_MENU]
+AS
+select * from co_menu
+where disponible=1
+GO

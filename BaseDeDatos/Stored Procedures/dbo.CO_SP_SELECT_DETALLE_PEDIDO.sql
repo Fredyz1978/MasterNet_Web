@@ -1,0 +1,25 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+-- =============================================
+-- Author:		Fredy M. Aguirre
+-- Create date: 28/12/2006
+-- Description:	Devuelve los items de un pedido<
+-- =============================================
+CREATE PROCEDURE [dbo].[CO_SP_SELECT_DETALLE_PEDIDO] 
+
+@CO_EMP_RUC varchar(13),
+@CO_PED_COD int
+
+AS
+BEGIN
+
+SELECT     CO_DETALLE_PEDIDO.CO_PED_COD, CO_DETALLE_PEDIDO.CO_ART_COD, CO_DETALLE_PEDIDO.CO_EMP_RUC, CO_ARTICULO.CO_ART_NOM, 
+                      CO_DETALLE_PEDIDO.CO_DET_PE_CANT
+FROM         CO_DETALLE_PEDIDO INNER JOIN
+                      CO_ARTICULO ON CO_DETALLE_PEDIDO.CO_ART_COD = CO_ARTICULO.CO_ART_COD AND 
+                      CO_DETALLE_PEDIDO.CO_EMP_RUC = CO_ARTICULO.CO_EMP_RUC
+WHERE     (CO_DETALLE_PEDIDO.CO_EMP_RUC = @CO_EMP_RUC) AND (CO_DETALLE_PEDIDO.CO_PED_COD = @CO_PED_COD)
+END
+GO

@@ -1,0 +1,16 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+create PROCEDURE [dbo].[CO_SP_SELECT_DATOS_ARTICULO] 
+	-- Add the parameters for the stored procedure here
+	@CO_EMP_RUC varchar(50),
+	@CO_ART_COD NVARCHAR(20)
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT     *
+	FROM         dbo.CO_ARTICULO
+	WHERE     (CO_EMP_RUC = @CO_EMP_RUC) AND CO_ART_COD=@CO_ART_COD
+END
+GO

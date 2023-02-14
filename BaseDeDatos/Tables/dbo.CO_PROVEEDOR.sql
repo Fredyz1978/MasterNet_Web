@@ -1,0 +1,33 @@
+CREATE TABLE [dbo].[CO_PROVEEDOR]
+(
+[CO_PRO_COD] [uniqueidentifier] NOT NULL,
+[CO_EMP_RUC] [char] (13) COLLATE Modern_Spanish_CI_AS NOT NULL,
+[CO_CLA_PRO_COD] [uniqueidentifier] NOT NULL,
+[CO_CLA_IDE_COD] [uniqueidentifier] NOT NULL,
+[CO_PRO_CED] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_NOM] [nvarchar] (100) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_CON] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_CLA_PAI] [nvarchar] (50) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_CLA_CIU] [uniqueidentifier] NULL,
+[CO_PRO_DIR] [nvarchar] (200) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_TEL1] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_TEL2] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_FAX] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_CEL] [nvarchar] (20) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_MAI] [nvarchar] (150) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_MAI2] [nvarchar] (100) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_MAI3] [nvarchar] (100) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_CUE] [nvarchar] (40) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_CON_ESP] [bit] NULL,
+[CO_PRO_CRE] [bit] NULL,
+[CO_PRO_LIM_CRE] [float] NULL,
+[CO_PRO_EST] [nvarchar] (10) COLLATE Modern_Spanish_CI_AS NULL,
+[CO_PRO_USU_ALI] [nvarchar] (15) COLLATE Modern_Spanish_CI_AS NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[CO_PROVEEDOR] ADD CONSTRAINT [PK_CO_PROVEEDOR] PRIMARY KEY CLUSTERED ([CO_PRO_COD]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[CO_PROVEEDOR] ADD CONSTRAINT [FK_CO_PROVEEDOR_CO_EMPRESA] FOREIGN KEY ([CO_EMP_RUC]) REFERENCES [dbo].[CO_EMPRESA] ([CO_EMP_RUC])
+GO
+ALTER TABLE [dbo].[CO_PROVEEDOR] ADD CONSTRAINT [FK_CO_PROVEEDOR_CO_TIPO_IDENTIFICACION] FOREIGN KEY ([CO_CLA_IDE_COD]) REFERENCES [dbo].[CO_TIPO_IDENTIFICACION] ([CO_TIP_IDE_COD])
+GO

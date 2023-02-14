@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [PRODUCCION].[TIPO_RECETA_BUSCAR]
+@nombre varchar(250)
+AS
+select * from PRODUCCION.TIPO_RECETA
+where pr_tip_rec_nom like '%'+@nombre+'%'
+GO

@@ -1,0 +1,21 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[CO_SP_INSERT_DETALLE_GUIA_REMISION]
+(@CO_DET_GUI_REM_COD uniqueidentifier
+		   ,@CO_DOC_VEN_GUI_COD uniqueidentifier
+           ,@CO_DET_GUI_REM_CAN int
+           ,@CO_DET_GUI_REM_DES nvarchar(500))
+AS
+INSERT INTO [dbo].[CO_DETALLE_GUIA_REMISION]
+           (CO_DET_GUI_REM_COD
+		   ,[CO_DOC_VEN_GUI_COD]
+           ,[CO_DET_GUI_REM_CAN]
+           ,[CO_DET_GUI_REM_DES])
+     VALUES
+           (@CO_DET_GUI_REM_COD,
+		   @CO_DOC_VEN_GUI_COD,
+			@CO_DET_GUI_REM_CAN,
+			@CO_DET_GUI_REM_DES)
+GO

@@ -1,0 +1,30 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+-- =============================================
+-- Author:		Fredy M. Aguirre
+-- Create date: 15/12/2006
+-- Description:	Actualiza un registro de la tabla CO_OPT_CONFIG_NOTIFICACIONES_STOCK
+-- =============================================
+CREATE PROCEDURE [dbo].[CO_SP_UPDATE_OPT_CONFIG_NOTIFICACIONES_STOCK] 
+
+@CO_EMP_RUC char(13),
+@CO_OPT_CONF_NOT_STO_POR_MIN float,
+@CO_OPT_CONF_NOT_STO_POR_MAX float,
+@CO_OPT_CONF_NOT_STO_MOS_NOT_COM bit,
+@CO_OPT_CONF_NOT_STO_MOS_NOT_VEN bit,
+@CO_OPT_CONF_NOT_SOT_MOS_NOT_INI bit
+
+AS
+BEGIN
+
+UPDATE    CO_OPT_CONFIG_NOTIFICACIONES_STOCK
+SET              CO_EMP_RUC = @CO_EMP_RUC, CO_OPT_CONF_NOT_STO_POR_MIN = @CO_OPT_CONF_NOT_STO_POR_MIN, 
+                      CO_OPT_CONF_NOT_STO_POR_MAX = @CO_OPT_CONF_NOT_STO_POR_MAX, 
+                      CO_OPT_CONF_NOT_STO_MOS_NOT_COM = @CO_OPT_CONF_NOT_STO_MOS_NOT_COM, 
+                      CO_OPT_CONF_NOT_STO_MOS_NOT_VEN = @CO_OPT_CONF_NOT_STO_MOS_NOT_VEN, 
+                      CO_OPT_CONF_NOT_SOT_MOS_NOT_INI = @CO_OPT_CONF_NOT_SOT_MOS_NOT_INI
+
+END
+GO

@@ -1,0 +1,19 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[CO_SP_SELECT_REPORTE_EXISTENCIA_FECHA]
+@CO_KAR_TOT_FEC DATETIME
+,@CO_EMP_RUC CHAR(13)
+AS
+SELECT *
+, case when len(CO_ART_COD)<=6 then 1
+	   when len(CO_ART_COD)=7 then 2
+	   when len(CO_ART_COD)=8 then 3
+	   when len(CO_ART_COD)=9 then 4
+	   when len(CO_ART_COD)=10 then 5 
+	   when len(CO_ART_COD)=11 then 6 else 7 end as orden
+FROM CO_VW_SELECT_ARTICULOS_EXITENCIAS
+WHERE (CO_KAR_TOT_FEC <= @CO_KAR_TOT_FEC) AND CO_EMP_RUC=@CO_EMP_RUC
+ORDER BY orden, CO_ART_COD asc, CO_KAR_TOT_FEC desc
+GO

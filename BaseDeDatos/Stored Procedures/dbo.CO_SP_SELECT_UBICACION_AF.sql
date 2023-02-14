@@ -1,0 +1,10 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+create proc [dbo].[CO_SP_SELECT_UBICACION_AF]
+@CO_EMP_RUC CHAR(13)
+as
+select * from co_ubicacion_af
+WHERE CO_EMP_RUC=@CO_EMP_RUC
+GO

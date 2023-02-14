@@ -1,0 +1,13 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+CREATE PROC [dbo].[CO_SP_DELETE_CLIENTE]
+			@CO_CLI_COD nvarchar(50)
+           ,@CO_EMP_RUC char(13)
+AS
+DELETE [dbo].[CO_CLIENTE] 
+     WHERE
+           ([CO_CLI_COD]=@CO_CLI_COD
+           AND [CO_EMP_RUC]=@CO_EMP_RUC)
+GO
